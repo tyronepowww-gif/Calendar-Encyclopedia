@@ -8,7 +8,7 @@
   />
   <meta
     name="description"
-    content="Lunar Wisdom: a local-first lunar calendar, seasonal reflection, virtues, wisdom texts, and journal."
+    content="Lunar Wisdom: a local-first lunar calendar, seasonal reflection, virtues, sourced wisdom, and a private journal."
   />
   <title>Lunar Wisdom</title>
 
@@ -58,10 +58,10 @@
       margin: 0;
       color: var(--text);
       background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.22) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 84% 10%, rgba(255,255,255,0.18) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 70% 45%, rgba(255,255,255,0.13) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 27% 68%, rgba(255,255,255,0.12) 0 1px, transparent 1.5px);
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.22) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 84% 10%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 70% 45%, rgba(255, 255, 255, 0.13) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 27% 68%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1.5px);
       background-size: 180px 180px, 230px 230px, 270px 270px, 340px 340px;
       overflow-x: hidden;
     }
@@ -90,6 +90,10 @@
 
     a {
       color: #c8e0ff;
+    }
+
+    strong {
+      color: #f5f9ff;
     }
 
     .app-shell {
@@ -165,8 +169,14 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .section-heading {
@@ -249,7 +259,9 @@
       border: 1px solid rgba(229, 240, 255, 0.2);
       border-radius: 50%;
       background: rgba(4, 11, 22, 0.35);
-      box-shadow: inset -10px -10px 20px rgba(0,0,0,0.18), 0 0 28px rgba(219, 232, 255, 0.12);
+      box-shadow:
+        inset -10px -10px 20px rgba(0, 0, 0, 0.18),
+        0 0 28px rgba(219, 232, 255, 0.12);
       font-size: 3.9rem;
       line-height: 1;
     }
@@ -389,14 +401,18 @@
       margin-top: 13px;
       overflow: hidden;
       border-radius: 999px;
-      background: rgba(0,0,0,0.27);
+      background: rgba(0, 0, 0, 0.27);
     }
 
     .progress-fill {
       width: var(--progress, 0%);
       height: 100%;
       border-radius: inherit;
-      background: linear-gradient(90deg, var(--season-color, var(--accent)), rgba(255,255,255,0.8));
+      background: linear-gradient(
+        90deg,
+        var(--season-color, var(--accent)),
+        rgba(255, 255, 255, 0.8)
+      );
       box-shadow: 0 0 14px var(--season-color, var(--accent));
     }
 
@@ -420,10 +436,6 @@
       color: var(--muted);
       font-size: 0.79rem;
       line-height: 1.5;
-    }
-
-    .source-meta strong {
-      color: #e7efff;
     }
 
     details {
@@ -509,15 +521,27 @@
       border-radius: 50%;
     }
 
-    .astronomy { background: #8fc8ff; }
-    .source-text { background: #f4cf7f; }
-    .tradition { background: #9fe0aa; }
-    .app-interpretation { background: #d4a6ff; }
+    .astronomy {
+      background: #8fc8ff;
+    }
+
+    .source-text {
+      background: #f4cf7f;
+    }
+
+    .tradition {
+      background: #9fe0aa;
+    }
+
+    .app-interpretation {
+      background: #d4a6ff;
+    }
 
     .calendar-toolbar,
     .year-toolbar,
     .library-filters,
-    .journal-toolbar {
+    .journal-toolbar,
+    .settings-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -825,6 +849,58 @@
       line-height: 1.48;
     }
 
+    .warning {
+      padding: 11px 12px;
+      border: 1px solid rgba(239, 200, 117, 0.3);
+      border-radius: 12px;
+      background: rgba(113, 83, 24, 0.18);
+      color: #ffe7a3;
+      font-size: 0.8rem;
+      line-height: 1.48;
+    }
+
+    .success-note {
+      padding: 11px 12px;
+      border: 1px solid rgba(158, 224, 178, 0.24);
+      border-radius: 12px;
+      background: rgba(57, 118, 75, 0.16);
+      color: #cef5d8;
+      font-size: 0.8rem;
+      line-height: 1.48;
+    }
+
+    .switch-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .switch-line:last-child {
+      border-bottom: 0;
+    }
+
+    .switch-line label {
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .switch-line p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #b9d7ff;
+    }
+
     .bottom-nav {
       position: fixed;
       z-index: 30;
@@ -885,7 +961,7 @@
       border: 1px solid rgba(219, 232, 255, 0.2);
       border-radius: 19px;
       background: linear-gradient(155deg, #1c2d48, #091525);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.58);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.58);
     }
 
     .modal-header {
@@ -997,16 +1073,36 @@
           <p>Rhythm · Responsibility · Character · Practice</p>
         </div>
       </div>
-      <button class="icon-button" id="legendButton" aria-label="Open information legend">ⓘ</button>
+
+      <button
+        class="icon-button"
+        id="legendButton"
+        aria-label="Open information and sources legend"
+        title="Information and sources"
+      >
+        ⓘ
+      </button>
     </header>
 
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <button class="nav-button active" data-screen-target="today"><span class="nav-icon">🏠</span>Today</button>
-      <button class="nav-button" data-screen-target="moon"><span class="nav-icon">🌙</span>Moon</button>
-      <button class="nav-button" data-screen-target="seasons"><span class="nav-icon">🌍</span>Seasons</button>
-      <button class="nav-button" data-screen-target="virtues"><span class="nav-icon">🧭</span>Virtues</button>
-      <button class="nav-button" data-screen-target="wisdom"><span class="nav-icon">📜</span>Wisdom</button>
-      <button class="nav-button" data-screen-target="journal"><span class="nav-icon">📓</span>Journal</button>
+      <button class="nav-button active" data-screen-target="today">
+        <span class="nav-icon">🏠</span>Today
+      </button>
+      <button class="nav-button" data-screen-target="moon">
+        <span class="nav-icon">🌙</span>Moon
+      </button>
+      <button class="nav-button" data-screen-target="seasons">
+        <span class="nav-icon">🌍</span>Seasons
+      </button>
+      <button class="nav-button" data-screen-target="virtues">
+        <span class="nav-icon">🧭</span>Virtues
+      </button>
+      <button class="nav-button" data-screen-target="wisdom">
+        <span class="nav-icon">📜</span>Wisdom
+      </button>
+      <button class="nav-button" data-screen-target="journal">
+        <span class="nav-icon">📓</span>Journal
+      </button>
     </nav>
 
     <section class="screen active" id="screen-today"></section>
@@ -1018,15 +1114,34 @@
   </main>
 
   <nav class="bottom-nav" aria-label="Primary navigation">
-    <button class="nav-button active" data-screen-target="today"><span class="nav-icon">🏠</span><span>Today</span></button>
-    <button class="nav-button" data-screen-target="moon"><span class="nav-icon">🌙</span><span>Moon</span></button>
-    <button class="nav-button" data-screen-target="seasons"><span class="nav-icon">🌍</span><span>Seasons</span></button>
-    <button class="nav-button" data-screen-target="virtues"><span class="nav-icon">🧭</span><span>Virtues</span></button>
-    <button class="nav-button" data-screen-target="wisdom"><span class="nav-icon">📜</span><span>Wisdom</span></button>
-    <button class="nav-button" data-screen-target="journal"><span class="nav-icon">📓</span><span>Journal</span></button>
+    <button class="nav-button active" data-screen-target="today">
+      <span class="nav-icon">🏠</span><span>Today</span>
+    </button>
+    <button class="nav-button" data-screen-target="moon">
+      <span class="nav-icon">🌙</span><span>Moon</span>
+    </button>
+    <button class="nav-button" data-screen-target="seasons">
+      <span class="nav-icon">🌍</span><span>Seasons</span>
+    </button>
+    <button class="nav-button" data-screen-target="virtues">
+      <span class="nav-icon">🧭</span><span>Virtues</span>
+    </button>
+    <button class="nav-button" data-screen-target="wisdom">
+      <span class="nav-icon">📜</span><span>Wisdom</span>
+    </button>
+    <button class="nav-button" data-screen-target="journal">
+      <span class="nav-icon">📓</span><span>Journal</span>
+    </button>
   </nav>
 
-  <div class="modal" id="appModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div
+    class="modal"
+    id="appModal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
     <div class="modal-panel">
       <div class="modal-header">
         <h2 id="modalTitle">Lunar Wisdom</h2>
@@ -1039,18 +1154,34 @@
   <script>
     "use strict";
 
-    /*
-      Lunar Wisdom
-      Local-first prototype. No journal content is transmitted anywhere.
-      Moon calculation: approximation based on a known new-moon epoch and the
-      mean synodic month. It is suitable for general daily guidance, but not
-      for precision astronomical scheduling or local horizon observations.
-    */
-
-    const APP_VERSION = "1.0.0";
+    const APP_VERSION = "1.2.0";
     const SYNODIC_MONTH = 29.530588853;
     const NEW_MOON_EPOCH = Date.UTC(2000, 0, 6, 18, 14, 0);
     const DAY_MS = 86400000;
+
+    const NIV_COPYRIGHT_NOTICE =
+      "Scripture quotations taken from The Holy Bible, New International Version® NIV®. " +
+      "Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.® Used by permission. " +
+      "All rights reserved worldwide.";
+
+    const STORAGE_KEYS = {
+      journal: "lunarWisdomJournalEntries",
+      hemisphere: "lunarWisdomHemisphere",
+      quoteHistory: "lunarWisdomQuoteHistory",
+      dailySelections: "lunarWisdomDailySelections",
+      diversitySettings: "lunarWisdomDiversitySettings"
+    };
+
+    const DEFAULT_DIVERSITY_SETTINGS = {
+      passageCooldownDays: 30,
+      traditionCooldownDays: 4,
+      referenceCooldownDays: 14,
+      maxSameTraditionIn30Days: 5,
+      allowNiv: true,
+      translationPreference: "balanced",
+      preferredTraditions: [],
+      excludedTraditions: []
+    };
 
     const state = {
       selectedDate: startOfLocalDay(new Date()),
@@ -1061,8 +1192,8 @@
       selectedVirtue: "Wisdom",
       libraryQuery: "",
       libraryTradition: "All",
-      editingJournalDate: null,
-      journalEntries: loadJournalEntries()
+      journalEntries: loadJournalEntries(),
+      diversitySettings: loadDiversitySettings()
     };
 
     const phaseDefinitions = [
@@ -1130,7 +1261,7 @@
         theme: "Generosity",
         virtue: "Charity / Compassion",
         action: "Offer help, attention, or a useful resource without seeking credit.",
-        question: "What can I give without expecting recognition?"
+        question: "What can I give without seeking credit?"
       },
       {
         key: "last-quarter",
@@ -1157,51 +1288,75 @@
     ];
 
     const virtues = {
-      "Wisdom": {
+      Wisdom: {
         definition: "Sound judgment about what is true, valuable, and fitting in a particular situation.",
         practical: "Pause long enough to see evidence, motives, consequences, and limits before deciding.",
         example: "Before giving advice, learn what has actually happened and admit what you do not know.",
-        questions: ["What do I know?", "What am I assuming?", "What is the most fitting next step?"],
+        questions: [
+          "What do I know?",
+          "What am I assuming?",
+          "What is the most fitting next step?"
+        ],
         lunar: ["Full Moon", "Waning Crescent"],
         seasonal: ["Autumn", "Winter"]
       },
-      "Courage": {
+      Courage: {
         definition: "Steadfast action in the presence of fear, difficulty, or risk.",
         practical: "Move toward a worthy responsibility without denying real danger or acting recklessly.",
         example: "Have a difficult but respectful conversation instead of avoiding it.",
-        questions: ["What fear is protecting me?", "What fear is only delaying me?", "What is worth doing anyway?"],
+        questions: [
+          "What fear is protecting me?",
+          "What fear is only delaying me?",
+          "What is worth doing anyway?"
+        ],
         lunar: ["First Quarter"],
         seasonal: ["Spring", "Summer"]
       },
-      "Temperance": {
+      Temperance: {
         definition: "Self-command and balance in desire, pleasure, consumption, and reaction.",
         practical: "Use good things in proportion rather than letting appetite direct your choices.",
         example: "Stop scrolling, eating, spending, or arguing at the point where it no longer serves a good purpose.",
-        questions: ["What is enough?", "What impulse needs a boundary?", "What restores balance?"],
+        questions: [
+          "What is enough?",
+          "What impulse needs a boundary?",
+          "What restores balance?"
+        ],
         lunar: ["Waxing Gibbous", "Waning Crescent"],
         seasonal: ["Summer", "Winter"]
       },
-      "Justice": {
+      Justice: {
         definition: "Giving people their due and acting fairly, truthfully, and responsibly.",
         practical: "Repair harms, keep commitments, distribute attention and resources fairly, and refuse convenient dishonesty.",
         example: "Acknowledge an error that benefited you and help correct its effects.",
-        questions: ["Who is affected?", "What is owed?", "What repair is possible?"],
+        questions: [
+          "Who is affected?",
+          "What is owed?",
+          "What repair is possible?"
+        ],
         lunar: ["Last Quarter"],
         seasonal: ["Autumn"]
       },
-      "Faith": {
+      Faith: {
         definition: "Trust, fidelity, or committed confidence; its meaning differs across religious and philosophical traditions.",
         practical: "Act faithfully toward a worthy commitment while remaining humble about uncertainty.",
         example: "Continue a healing practice or promise because it expresses your values, even before results are visible.",
-        questions: ["What commitment deserves fidelity?", "What is trust asking of me?", "Where must humility accompany belief?"],
+        questions: [
+          "What commitment deserves fidelity?",
+          "What is trust asking of me?",
+          "Where must humility accompany belief?"
+        ],
         lunar: ["New Moon"],
         seasonal: ["Winter", "Spring"]
       },
-      "Hope": {
+      Hope: {
         definition: "A disciplined orientation toward possible good, joined to effort rather than passive wishfulness.",
         practical: "Recognize a real opening and participate in it through patient action.",
         example: "Apply for the opportunity, begin rehabilitation, or study consistently despite uncertainty.",
-        questions: ["What good remains possible?", "What can I cultivate?", "What support do I need?"],
+        questions: [
+          "What good remains possible?",
+          "What can I cultivate?",
+          "What support do I need?"
+        ],
         lunar: ["Waxing Crescent"],
         seasonal: ["Spring"]
       },
@@ -1209,7 +1364,11 @@
         definition: "Active concern for another's well-being, especially where someone is vulnerable or burdened.",
         practical: "Notice suffering, respond proportionately, and respect the dignity and agency of the person you help.",
         example: "Listen carefully, offer practical support, or share a resource without turning help into control.",
-        questions: ["Whose burden can I notice?", "What help is actually useful?", "Can I give without needing praise?"],
+        questions: [
+          "Whose burden can I notice?",
+          "What help is actually useful?",
+          "Can I give without needing praise?"
+        ],
         lunar: ["Waning Gibbous"],
         seasonal: ["Summer", "Autumn"]
       }
@@ -1254,18 +1413,187 @@
       }
     ];
 
-    /*
-      Text records are intentionally concise. Each includes attribution,
-      translation/version data, relevance tag, themes, virtues, and a source URL.
-      The app does not assert that a source created the modern lunar mapping.
-    */
     const wisdomSources = [
+      {
+        id: "psalm-104-19-kjv",
+        tradition: "Hebrew Bible / Old Testament",
+        work: "Psalms",
+        reference: "Psalm 104:19",
+        translation: "King James Version (KJV)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "KJV-source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
+        quote: "He appointed the moon for seasons: the sun knoweth his going down.",
+        relevance: "Direct",
+        themes: ["Seasons", "Rhythm", "Nature"],
+        virtues: ["Wisdom", "Faith"],
+        keywords: ["moon", "season", "night", "heavens", "nature", "rhythm"],
+        url: "https://www.kingjamesbibleonline.org/Psalms-104-19/"
+      },
+      {
+        id: "ecclesiastes-3-1-kjv",
+        tradition: "Hebrew Bible / Old Testament",
+        work: "Ecclesiastes",
+        reference: "Ecclesiastes 3:1",
+        translation: "King James Version (KJV)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "KJV-source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
+        quote: "To every thing there is a season, and a time to every purpose under the heaven.",
+        relevance: "Direct",
+        themes: ["Seasons", "Timing", "Reflection", "Purpose"],
+        virtues: ["Wisdom", "Hope"],
+        keywords: ["season", "time", "purpose", "change", "heaven", "rest"],
+        url: "https://www.kingjamesbibleonline.org/Ecclesiastes-3-1/"
+      },
+      {
+        id: "proverbs-4-7-kjv",
+        tradition: "Hebrew Bible / Old Testament",
+        work: "Proverbs",
+        reference: "Proverbs 4:7",
+        translation: "King James Version (KJV)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "KJV-source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
+        quote: "Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding.",
+        relevance: "Thematic",
+        themes: ["Clarity", "Learning", "Wisdom"],
+        virtues: ["Wisdom"],
+        keywords: ["wisdom", "understanding", "learning", "clarity", "purpose"],
+        url: "https://www.kingjamesbibleonline.org/Proverbs-4-7/"
+      },
+      {
+        id: "micah-6-8-kjv",
+        tradition: "Hebrew Bible / Old Testament",
+        work: "Micah",
+        reference: "Micah 6:8",
+        translation: "King James Version (KJV)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "KJV-source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
+        quote: "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
+        relevance: "Thematic",
+        themes: ["Justice", "Compassion", "Humility"],
+        virtues: ["Justice", "Charity / Compassion", "Wisdom"],
+        keywords: ["justice", "mercy", "compassion", "humility", "good", "truth"],
+        url: "https://www.kingjamesbibleonline.org/Micah-6-8/"
+      },
+      {
+        id: "matthew-7-12-kjv",
+        tradition: "New Testament",
+        work: "Gospel of Matthew",
+        reference: "Matthew 7:12",
+        translation: "King James Version (KJV)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "KJV-source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
+        quote: "Therefore all things whatsoever ye would that men should do to you, do ye even so to them.",
+        relevance: "Thematic",
+        themes: ["Justice", "Compassion", "Action"],
+        virtues: ["Justice", "Charity / Compassion"],
+        keywords: ["justice", "compassion", "others", "action", "fairness", "forgiveness"],
+        url: "https://www.kingjamesbibleonline.org/Matthew-7-12/"
+      },
+      {
+        id: "galatians-6-9-kjv",
+        tradition: "New Testament",
+        work: "Galatians",
+        reference: "Galatians 6:9",
+        translation: "King James Version (KJV)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "KJV-source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
+        quote: "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+        relevance: "Metaphorical",
+        themes: ["Harvest", "Endurance", "Hope"],
+        virtues: ["Hope", "Courage"],
+        keywords: ["season", "harvest", "hope", "endurance", "work", "discipline"],
+        url: "https://www.kingjamesbibleonline.org/Galatians-6-9/"
+      },
+      {
+        id: "micah-6-8-niv",
+        tradition: "Hebrew Bible / Old Testament",
+        work: "Micah",
+        reference: "Micah 6:8",
+        translation: "New International Version (NIV)",
+        copyrightStatus: "copyrighted",
+        quotePolicy: "NIV-short-quotation",
+        verseCount: 1,
+        attributionRequired: true,
+        quote: "He has shown you, O mortal, what is good. And what does the LORD require of you? To act justly and to love mercy and to walk humbly with your God.",
+        relevance: "Thematic",
+        themes: ["Justice", "Compassion", "Humility"],
+        virtues: ["Justice", "Charity / Compassion", "Wisdom"],
+        keywords: ["justice", "mercy", "compassion", "humility", "good", "truth"],
+        url: "https://www.biblegateway.com/passage/?search=Micah%206%3A8&version=NIV"
+      },
+      {
+        id: "ecclesiastes-3-1-niv",
+        tradition: "Hebrew Bible / Old Testament",
+        work: "Ecclesiastes",
+        reference: "Ecclesiastes 3:1",
+        translation: "New International Version (NIV)",
+        copyrightStatus: "copyrighted",
+        quotePolicy: "NIV-short-quotation",
+        verseCount: 1,
+        attributionRequired: true,
+        quote: "There is a time for everything, and a season for every activity under the heavens:",
+        relevance: "Direct",
+        themes: ["Seasons", "Timing", "Reflection", "Purpose"],
+        virtues: ["Wisdom", "Hope"],
+        keywords: ["season", "time", "purpose", "change", "heavens", "rest"],
+        url: "https://www.biblegateway.com/passage/?search=Ecclesiastes%203%3A1&version=NIV"
+      },
+      {
+        id: "romans-12-12-niv",
+        tradition: "New Testament",
+        work: "Romans",
+        reference: "Romans 12:12",
+        translation: "New International Version (NIV)",
+        copyrightStatus: "copyrighted",
+        quotePolicy: "NIV-short-quotation",
+        verseCount: 1,
+        attributionRequired: true,
+        quote: "Be joyful in hope, patient in affliction, faithful in prayer.",
+        relevance: "Thematic",
+        themes: ["Hope", "Endurance", "Faith"],
+        virtues: ["Hope", "Faith", "Courage"],
+        keywords: ["hope", "faith", "endurance", "prayer", "courage", "difficulty"],
+        url: "https://www.biblegateway.com/passage/?search=Romans%2012%3A12&version=NIV"
+      },
+      {
+        id: "philippians-4-8-niv",
+        tradition: "New Testament",
+        work: "Philippians",
+        reference: "Philippians 4:8",
+        translation: "New International Version (NIV)",
+        copyrightStatus: "copyrighted",
+        quotePolicy: "NIV-short-quotation",
+        verseCount: 1,
+        attributionRequired: true,
+        quote: "Whatever is true, whatever is noble, whatever is right, whatever is pure, whatever is lovely, whatever is admirable—if anything is excellent or praiseworthy—think about such things.",
+        relevance: "Thematic",
+        themes: ["Clarity", "Reflection", "Truth"],
+        virtues: ["Wisdom", "Temperance"],
+        keywords: ["truth", "clarity", "mind", "thought", "discipline", "good"],
+        url: "https://www.biblegateway.com/passage/?search=Philippians%204%3A8&version=NIV"
+      },
       {
         id: "gita-2-47",
         tradition: "Hindu / Indian",
         work: "Bhagavad Gita",
         reference: "2.47",
         translation: "Edwin Arnold, 1885 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "Thy right is to work only, but never to its fruits; let not the fruit of action be thy motive, nor be thou to inaction attached.",
         relevance: "Thematic",
         themes: ["Action", "Discipline", "Duty", "Temperance"],
@@ -1279,6 +1607,10 @@
         work: "Bhagavad Gita",
         reference: "6.5",
         translation: "Edwin Arnold, 1885 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "Raise thyself by thyself; do not let thyself sink.",
         relevance: "Thematic",
         themes: ["Growth", "Courage", "Self-Discipline"],
@@ -1292,6 +1624,10 @@
         work: "Dhammapada",
         reference: "Verse 1",
         translation: "F. Max Müller, 1881 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "All that we are is the result of what we have thought: it is founded on our thoughts, it is made up of our thoughts.",
         relevance: "Thematic",
         themes: ["Clarity", "Reflection", "Consequences"],
@@ -1305,6 +1641,10 @@
         work: "Dhammapada",
         reference: "Verse 183",
         translation: "F. Max Müller, 1881 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "Not to commit any sin, to do good, and to purify one's mind, that is the teaching of all the Awakened.",
         relevance: "Thematic",
         themes: ["Correction", "Temperance", "Compassion"],
@@ -1318,6 +1658,10 @@
         work: "Tao Te Ching",
         reference: "Chapter 8",
         translation: "James Legge, 1891 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "The highest excellence is like that of water. The excellence of water appears in its benefiting all things, and in its occupying, without striving, the low ground.",
         relevance: "Metaphorical",
         themes: ["Humility", "Compassion", "Adaptation"],
@@ -1331,6 +1675,10 @@
         work: "Tao Te Ching",
         reference: "Chapter 33",
         translation: "James Legge, 1891 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "He who knows men is skilful; he who knows himself is enlightened.",
         relevance: "Thematic",
         themes: ["Clarity", "Self-Knowledge", "Reflection"],
@@ -1339,76 +1687,15 @@
         url: "https://www.gutenberg.org/ebooks/216"
       },
       {
-        id: "psalm-104-19",
-        tradition: "Hebrew Bible / Old Testament",
-        work: "Psalms",
-        reference: "Psalm 104:19",
-        translation: "King James Version, public domain",
-        quote: "He appointed the moon for seasons: the sun knoweth his going down.",
-        relevance: "Direct",
-        themes: ["Seasons", "Rhythm", "Nature"],
-        virtues: ["Wisdom", "Faith"],
-        keywords: ["moon", "season", "night", "heavens", "nature", "rhythm"],
-        url: "https://www.kingjamesbibleonline.org/Psalms-104-19/"
-      },
-      {
-        id: "ecclesiastes-3",
-        tradition: "Hebrew Bible / Old Testament",
-        work: "Ecclesiastes",
-        reference: "Ecclesiastes 3:1",
-        translation: "King James Version, public domain",
-        quote: "To every thing there is a season, and a time to every purpose under the heaven.",
-        relevance: "Direct",
-        themes: ["Seasons", "Timing", "Reflection"],
-        virtues: ["Wisdom", "Hope"],
-        keywords: ["season", "time", "purpose", "change", "heaven"],
-        url: "https://www.kingjamesbibleonline.org/Ecclesiastes-3-1/"
-      },
-      {
-        id: "proverbs-4-7",
-        tradition: "Hebrew Bible / Old Testament",
-        work: "Proverbs",
-        reference: "Proverbs 4:7",
-        translation: "King James Version, public domain",
-        quote: "Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding.",
-        relevance: "Thematic",
-        themes: ["Clarity", "Learning", "Wisdom"],
-        virtues: ["Wisdom"],
-        keywords: ["wisdom", "understanding", "learning", "clarity"],
-        url: "https://www.kingjamesbibleonline.org/Proverbs-4-7/"
-      },
-      {
-        id: "matthew-7-12",
-        tradition: "New Testament",
-        work: "Gospel of Matthew",
-        reference: "Matthew 7:12",
-        translation: "King James Version, public domain",
-        quote: "Therefore all things whatsoever ye would that men should do to you, do ye even so to them.",
-        relevance: "Thematic",
-        themes: ["Justice", "Compassion", "Action"],
-        virtues: ["Justice", "Charity / Compassion"],
-        keywords: ["justice", "compassion", "others", "action", "fairness"],
-        url: "https://www.kingjamesbibleonline.org/Matthew-7-12/"
-      },
-      {
-        id: "galatians-6-9",
-        tradition: "New Testament",
-        work: "Galatians",
-        reference: "Galatians 6:9",
-        translation: "King James Version, public domain",
-        quote: "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
-        relevance: "Metaphorical",
-        themes: ["Harvest", "Endurance", "Hope"],
-        virtues: ["Hope", "Courage"],
-        keywords: ["season", "harvest", "hope", "endurance", "work"],
-        url: "https://www.kingjamesbibleonline.org/Galatians-6-9/"
-      },
-      {
         id: "quran-2-286",
         tradition: "Islamic",
         work: "Qur'an",
         reference: "2:286",
         translation: "Marmaduke Pickthall, 1930 (public domain in the United States)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "Allah tasketh not a soul beyond its scope.",
         relevance: "Thematic",
         themes: ["Endurance", "Courage", "Hope"],
@@ -1422,6 +1709,10 @@
         work: "Qur'an",
         reference: "2:219",
         translation: "Marmaduke Pickthall, 1930 (public domain in the United States)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "They ask thee what they ought to spend. Say: That which is superfluous.",
         relevance: "Thematic",
         themes: ["Generosity", "Charity", "Balance"],
@@ -1435,6 +1726,10 @@
         work: "Meditations",
         reference: "Book II, 1",
         translation: "George Long, 1862 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "The only thing of which I can be deprived is my free choice. And if I am not deprived of this, I cannot be harmed.",
         relevance: "Thematic",
         themes: ["Courage", "Agency", "Discipline"],
@@ -1448,6 +1743,10 @@
         work: "Meditations",
         reference: "Book IV, 3",
         translation: "George Long, 1862 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "The universe is change; our life is what our thoughts make it.",
         relevance: "Metaphorical",
         themes: ["Change", "Clarity", "Reflection"],
@@ -1461,6 +1760,10 @@
         work: "Enchiridion",
         reference: "1",
         translation: "George Long, 1890 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "Some things are in our power, and others are not.",
         relevance: "Thematic",
         themes: ["Clarity", "Temperance", "Acceptance"],
@@ -1474,6 +1777,10 @@
         work: "Moral Letters to Lucilius",
         reference: "Letter XIII",
         translation: "Richard M. Gummere, 1917 (public domain in the United States)",
+        copyrightStatus: "public-domain-us",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "We suffer more often in imagination than in reality.",
         relevance: "Thematic",
         themes: ["Fear", "Courage", "Clarity"],
@@ -1487,6 +1794,10 @@
         work: "Nicomachean Ethics",
         reference: "Book II, 6",
         translation: "W. D. Ross, 1908 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "Virtue, then, is a state that decides, consisting in a mean, the mean relative to us.",
         relevance: "Thematic",
         themes: ["Temperance", "Character", "Judgment"],
@@ -1500,6 +1811,10 @@
         work: "Apology",
         reference: "38a",
         translation: "Benjamin Jowett, 1871 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "The unexamined life is not worth living.",
         relevance: "Thematic",
         themes: ["Clarity", "Reflection", "Wisdom"],
@@ -1513,6 +1828,10 @@
         work: "Uttaradhyayana Sutra",
         reference: "Chapter 1, selected teaching",
         translation: "Hermann Jacobi, 1895 (public domain)",
+        copyrightStatus: "public-domain",
+        quotePolicy: "source-attribution",
+        verseCount: 1,
+        attributionRequired: false,
         quote: "The soul is its own friend; why should any other friend be desired?",
         relevance: "Thematic",
         themes: ["Self-Discipline", "Reflection", "Responsibility"],
@@ -1526,6 +1845,10 @@
         work: "Guru Granth Sahib",
         reference: "Library note",
         translation: "No substantial quotation bundled",
+        copyrightStatus: "source-link-only",
+        quotePolicy: "verify-before-adding",
+        verseCount: 0,
+        attributionRequired: false,
         quote: "This local sample library does not reproduce a Guru Granth Sahib translation. Use an authorized online source when adding passage data.",
         relevance: "Thematic",
         themes: ["Service", "Humility", "Compassion"],
@@ -1536,9 +1859,12 @@
     ];
 
     const relevanceDescriptions = {
-      Direct: "The passage directly mentions the Moon, seasons, heavens, night, or a related natural cycle.",
-      Metaphorical: "The passage uses imagery such as light, darkness, cycles, change, renewal, or nature.",
-      Thematic: "The passage addresses the ethical theme without claiming a lunar subject."
+      Direct:
+        "The passage directly mentions the Moon, seasons, heavens, night, or a related natural cycle.",
+      Metaphorical:
+        "The passage uses imagery such as light, darkness, cycles, change, renewal, or nature.",
+      Thematic:
+        "The passage addresses the ethical theme without claiming a lunar subject."
     };
 
     function startOfLocalDay(date) {
@@ -1557,16 +1883,31 @@
       return Math.round((startOfLocalDay(b) - startOfLocalDay(a)) / DAY_MS);
     }
 
-    function formatDate(date, options = { weekday: "long", month: "long", day: "numeric", year: "numeric" }) {
+    function formatDate(
+      date,
+      options = {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      }
+    ) {
       return new Intl.DateTimeFormat(undefined, options).format(date);
     }
 
     function formatShortDate(date) {
-      return new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric" }).format(date);
+      return new Intl.DateTimeFormat(undefined, {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      }).format(date);
     }
 
     function formatMonthYear(date) {
-      return new Intl.DateTimeFormat(undefined, { month: "long", year: "numeric" }).format(date);
+      return new Intl.DateTimeFormat(undefined, {
+        month: "long",
+        year: "numeric"
+      }).format(date);
     }
 
     function dateKey(date) {
@@ -1574,6 +1915,20 @@
       const m = String(date.getMonth() + 1).padStart(2, "0");
       const d = String(date.getDate()).padStart(2, "0");
       return `${y}-${m}-${d}`;
+    }
+
+    function parseDateKey(key) {
+      const [year, month, day] = key.split("-").map(Number);
+      return new Date(year, month - 1, day, 12);
+    }
+
+    function formatDateFromKey(key) {
+      return formatDate(parseDateKey(key), {
+        weekday: "short",
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      });
     }
 
     function normalizeText(value) {
@@ -1589,11 +1944,64 @@
         .replaceAll("'", "&#039;");
     }
 
+    function loadJSON(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function saveJSON(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function loadJournalEntries() {
+      return loadJSON(STORAGE_KEYS.journal, {});
+    }
+
+    function saveJournalEntries() {
+      saveJSON(STORAGE_KEYS.journal, state.journalEntries);
+    }
+
+    function loadDiversitySettings() {
+      const saved = loadJSON(STORAGE_KEYS.diversitySettings, {});
+      return {
+        ...DEFAULT_DIVERSITY_SETTINGS,
+        ...saved
+      };
+    }
+
+    function saveDiversitySettings() {
+      saveJSON(STORAGE_KEYS.diversitySettings, state.diversitySettings);
+    }
+
+    function loadWisdomHistory() {
+      return loadJSON(STORAGE_KEYS.quoteHistory, []);
+    }
+
+    function saveWisdomHistory(history) {
+      saveJSON(STORAGE_KEYS.quoteHistory, history);
+    }
+
+    function getStoredDailySelections() {
+      return loadJSON(STORAGE_KEYS.dailySelections, {});
+    }
+
+    function saveStoredDailySelections(selections) {
+      saveJSON(STORAGE_KEYS.dailySelections, selections);
+    }
+
     function moonCycleFraction(date) {
       const t = startOfLocalDay(date).getTime();
-      let daysSinceEpoch = (t - NEW_MOON_EPOCH) / DAY_MS;
+      const daysSinceEpoch = (t - NEW_MOON_EPOCH) / DAY_MS;
       let fraction = (daysSinceEpoch / SYNODIC_MONTH) % 1;
-      if (fraction < 0) fraction += 1;
+
+      if (fraction < 0) {
+        fraction += 1;
+      }
+
       return fraction;
     }
 
@@ -1606,8 +2014,10 @@
       const fraction = moonCycleFraction(date);
       const age = fraction * SYNODIC_MONTH;
       const illumination = ((1 - Math.cos(2 * Math.PI * fraction)) / 2) * 100;
+
       const phase = phaseDefinitions.reduce((closest, candidate) => {
-        return circularDistance(fraction, candidate.center) < circularDistance(fraction, closest.center)
+        return circularDistance(fraction, candidate.center) <
+          circularDistance(fraction, closest.center)
           ? candidate
           : closest;
       }, phaseDefinitions[0]);
@@ -1624,18 +2034,26 @@
 
     function getNextOrPreviousMajorPhase(date, direction = 1) {
       const base = startOfLocalDay(date);
-      for (let offset = direction > 0 ? 0 : 0; Math.abs(offset) <= 35; offset += direction) {
+
+      for (let offset = 0; Math.abs(offset) <= 35; offset += direction) {
         const candidate = addDays(base, offset);
         const moon = getMoonData(candidate);
         const distance = circularDistance(moon.fraction, moon.phase.center);
-        const isMajor = ["new", "first-quarter", "full", "last-quarter"].includes(moon.phase.key);
+        const isMajor = [
+          "new",
+          "first-quarter",
+          "full",
+          "last-quarter"
+        ].includes(moon.phase.key);
 
         if (isMajor && distance < 0.024) {
-          if (direction > 0 && offset === 0) return { date: candidate, phase: moon.phase };
-          if (direction < 0 && offset === 0) return { date: candidate, phase: moon.phase };
-          if (offset !== 0) return { date: candidate, phase: moon.phase };
+          return {
+            date: candidate,
+            phase: moon.phase
+          };
         }
       }
+
       return null;
     }
 
@@ -1646,20 +2064,30 @@
 
       while (cursor <= end) {
         const moon = getMoonData(cursor);
-        const isMajor = ["new", "first-quarter", "full", "last-quarter"].includes(moon.phase.key);
-        const closeToCenter = circularDistance(moon.fraction, moon.phase.center) < 0.024;
+        const isMajor = [
+          "new",
+          "first-quarter",
+          "full",
+          "last-quarter"
+        ].includes(moon.phase.key);
+
+        const closeToCenter =
+          circularDistance(moon.fraction, moon.phase.center) < 0.024;
 
         if (isMajor && closeToCenter) {
           const eventKey = `${dateKey(cursor)}-${moon.phase.key}`;
+
           if (eventKey !== lastKey) {
             events.push({
               date: new Date(cursor),
               phase: moon.phase,
               illumination: moon.illumination
             });
+
             lastKey = eventKey;
           }
         }
+
         cursor = addDays(cursor, 1);
       }
 
@@ -1667,11 +2095,6 @@
     }
 
     function seasonBoundaries(year) {
-      /*
-        Approximate local calendar dates for a standalone fallback.
-        Hemisphere-aware labels are applied in getSeasonData. Exact seasonal
-        transition timestamps vary by year and require an astronomical ephemeris.
-      */
       return {
         marchEquinox: new Date(year, 2, 20, 12),
         juneSolstice: new Date(year, 5, 21, 12),
@@ -1681,98 +2104,228 @@
     }
 
     function getHemisphere() {
-      const saved = localStorage.getItem("lunarWisdomHemisphere");
+      const saved = localStorage.getItem(STORAGE_KEYS.hemisphere);
       return saved === "south" ? "south" : "north";
     }
 
     function getSeasonData(date, hemisphere = getHemisphere()) {
       const d = startOfLocalDay(date);
       const year = d.getFullYear();
-      const b = seasonBoundaries(year);
+      const boundaries = seasonBoundaries(year);
       const previous = seasonBoundaries(year - 1);
       const next = seasonBoundaries(year + 1);
 
       let northSeason;
 
-      if (d >= b.marchEquinox && d < b.juneSolstice) {
-        northSeason = { key: "spring", start: b.marchEquinox, end: b.juneSolstice };
-      } else if (d >= b.juneSolstice && d < b.septemberEquinox) {
-        northSeason = { key: "summer", start: b.juneSolstice, end: b.septemberEquinox };
-      } else if (d >= b.septemberEquinox && d < b.decemberSolstice) {
-        northSeason = { key: "autumn", start: b.septemberEquinox, end: b.decemberSolstice };
-      } else if (d >= b.decemberSolstice) {
-        northSeason = { key: "winter", start: b.decemberSolstice, end: next.marchEquinox };
+      if (d >= boundaries.marchEquinox && d < boundaries.juneSolstice) {
+        northSeason = {
+          key: "spring",
+          start: boundaries.marchEquinox,
+          end: boundaries.juneSolstice
+        };
+      } else if (
+        d >= boundaries.juneSolstice &&
+        d < boundaries.septemberEquinox
+      ) {
+        northSeason = {
+          key: "summer",
+          start: boundaries.juneSolstice,
+          end: boundaries.septemberEquinox
+        };
+      } else if (
+        d >= boundaries.septemberEquinox &&
+        d < boundaries.decemberSolstice
+      ) {
+        northSeason = {
+          key: "autumn",
+          start: boundaries.septemberEquinox,
+          end: boundaries.decemberSolstice
+        };
+      } else if (d >= boundaries.decemberSolstice) {
+        northSeason = {
+          key: "winter",
+          start: boundaries.decemberSolstice,
+          end: next.marchEquinox
+        };
       } else {
-        northSeason = { key: "winter", start: previous.decemberSolstice, end: b.marchEquinox };
+        northSeason = {
+          key: "winter",
+          start: previous.decemberSolstice,
+          end: boundaries.marchEquinox
+        };
       }
 
-      const seasonIndexNorth = ["spring", "summer", "autumn", "winter"].indexOf(northSeason.key);
-      const seasonIndex = hemisphere === "south" ? (seasonIndexNorth + 2) % 4 : seasonIndexNorth;
+      const northIndex = ["spring", "summer", "autumn", "winter"].indexOf(
+        northSeason.key
+      );
+
+      const seasonIndex =
+        hemisphere === "south" ? (northIndex + 2) % 4 : northIndex;
+
       const season = seasons[seasonIndex];
-      const totalDays = Math.max(1, daysBetween(northSeason.start, northSeason.end));
-      const elapsedDays = Math.max(0, daysBetween(northSeason.start, d));
-      const daysRemaining = Math.max(0, daysBetween(d, northSeason.end));
+      const totalDays = Math.max(
+        1,
+        daysBetween(northSeason.start, northSeason.end)
+      );
+
+      const elapsedDays = Math.max(
+        0,
+        daysBetween(northSeason.start, d)
+      );
+
+      const daysRemaining = Math.max(
+        0,
+        daysBetween(d, northSeason.end)
+      );
 
       return {
         ...season,
         start: northSeason.start,
         end: northSeason.end,
         daysRemaining,
-        progress: Math.min(100, Math.max(0, (elapsedDays / totalDays) * 100)),
+        progress: Math.min(
+          100,
+          Math.max(0, (elapsedDays / totalDays) * 100)
+        ),
         hemisphere,
         approximation: true
       };
     }
 
-    function getDailyContext(date) {
-      const moon = getMoonData(date);
-      const season = getSeasonData(date);
-
-      const phaseVirtue = moon.phase.virtue;
-      const virtue = phaseVirtue.includes("/")
-        ? (moon.phase.key === "waning-crescent" ? "Wisdom" : "Temperance")
-        : phaseVirtue;
-
-      const theme = chooseDailyTheme(moon.phase, season);
-      const passage = selectPassage({ moon, season, virtue, theme });
-
-      return {
-        date: startOfLocalDay(date),
-        moon,
-        season,
-        virtue,
-        theme,
-        passage,
-        responsibility: buildSeasonalResponsibility(season, moon.phase, theme)
-      };
-    }
-
-    function chooseDailyTheme(phase, season) {
+    function chooseDailyTheme(phase, season, date) {
       const phaseTheme = phase.theme;
-      const seasonThemes = season.themes;
-      const seed = Math.abs(
-        Math.floor((state.selectedDate.getTime() / DAY_MS) + phase.center * 1000)
-      );
-      const seasonalTheme = seasonThemes[seed % seasonThemes.length];
+      const seasonalThemes = season.themes;
 
-      const compatible = {
-        "Beginning": ["Beginning", "Planting", "Preparation", "Learning"],
-        "Growth": ["Growth", "Learning", "Development", "Hope"],
-        "Action": ["Action", "Work", "Courage", "Service"],
-        "Refinement": ["Discipline", "Temperance", "Preparation", "Evaluation"],
-        "Clarity": ["Evaluation", "Reflection", "Wisdom", "Gratitude"],
-        "Generosity": ["Sharing", "Service", "Abundance", "Stewardship"],
-        "Correction": ["Consequences", "Evaluation", "Stewardship", "Preparation"],
-        "Release": ["Reflection", "Simplification", "Rest", "Preparation"]
+      const seed = Math.abs(
+        Math.floor(date.getTime() / DAY_MS + phase.center * 1000)
+      );
+
+      const seasonalTheme =
+        seasonalThemes[seed % seasonalThemes.length];
+
+      const compatibleThemes = {
+        Beginning: ["Beginning", "Planting", "Preparation", "Learning"],
+        Growth: ["Growth", "Learning", "Development", "Hope"],
+        Action: ["Action", "Work", "Courage", "Service"],
+        Refinement: ["Discipline", "Temperance", "Preparation", "Evaluation"],
+        Clarity: ["Evaluation", "Reflection", "Wisdom", "Gratitude"],
+        Generosity: ["Sharing", "Service", "Abundance", "Stewardship"],
+        Correction: ["Consequences", "Evaluation", "Stewardship", "Preparation"],
+        Release: ["Reflection", "Simplification", "Rest", "Preparation"]
       };
 
-      const likely = compatible[phaseTheme] || [];
-      const match = seasonalTheme && likely.some(item => normalizeText(item) === normalizeText(seasonalTheme));
+      const compatible = compatibleThemes[phaseTheme] || [];
 
-      return match ? seasonalTheme : phaseTheme;
+      const seasonalMatch = compatible.some(
+        item => normalizeText(item) === normalizeText(seasonalTheme)
+      );
+
+      return seasonalMatch ? seasonalTheme : phaseTheme;
     }
 
-    function selectPassage({ moon, season, virtue, theme }) {
+    function buildSeasonalResponsibility(season, phase, theme) {
+      const responsibilityBySeason = {
+        Spring:
+          "Begin with care: prepare what you want to grow, and make room for learning.",
+        Summer:
+          "Express capacity through disciplined work, useful service, and sustained attention.",
+        Autumn:
+          "Examine what your actions have produced; practice gratitude, stewardship, and honest evaluation.",
+        Winter:
+          "Protect what matters; simplify, rest, reflect, and prepare without hurry."
+      };
+
+      return (
+        responsibilityBySeason[season.name] +
+        ` Today’s lunar emphasis is ${normalizeText(
+          phase.theme
+        )}; use it as a modern prompt for ${normalizeText(theme)}.`
+      );
+    }
+
+    function getDaysAgo(dateString) {
+      const target = new Date(`${dateString}T12:00:00`);
+      const today = startOfLocalDay(new Date());
+      return Math.floor((today - target) / DAY_MS);
+    }
+
+    function seededNumber(seedText) {
+      let hash = 2166136261;
+
+      for (let i = 0; i < seedText.length; i++) {
+        hash ^= seedText.charCodeAt(i);
+        hash +=
+          (hash << 1) +
+          (hash << 4) +
+          (hash << 7) +
+          (hash << 8) +
+          (hash << 24);
+      }
+
+      return Math.abs(hash >>> 0) / 4294967295;
+    }
+
+    function normalizedReference(source) {
+      return `${source.work} ${source.reference}`.toLowerCase();
+    }
+
+    function getHistoryWithinDays(history, days, relativeDate = new Date()) {
+      const anchor = startOfLocalDay(relativeDate);
+
+      return history.filter(entry => {
+        const entryDate = new Date(`${entry.date}T12:00:00`);
+        const age = Math.floor((anchor - entryDate) / DAY_MS);
+        return age >= 0 && age < days;
+      });
+    }
+
+    function countTraditionAppearances(history, tradition, days, relativeDate) {
+      return getHistoryWithinDays(history, days, relativeDate).filter(
+        entry => entry.tradition === tradition
+      ).length;
+    }
+
+    function hasRecentPassage(history, sourceId, days, relativeDate) {
+      return getHistoryWithinDays(history, days, relativeDate).some(
+        entry => entry.sourceId === sourceId
+      );
+    }
+
+    function hasRecentReference(history, source, days, relativeDate) {
+      const targetReference = normalizedReference(source);
+
+      return getHistoryWithinDays(history, days, relativeDate).some(
+        entry => entry.referenceKey === targetReference
+      );
+    }
+
+    function hasRecentTradition(history, tradition, days, relativeDate) {
+      return getHistoryWithinDays(history, days, relativeDate).some(
+        entry => entry.tradition === tradition
+      );
+    }
+
+    function getEligibleWisdomSources(settings = state.diversitySettings) {
+      return wisdomSources.filter(source => {
+        const isNiv =
+          source.translation === "New International Version (NIV)";
+
+        if (isNiv && !settings.allowNiv) {
+          return false;
+        }
+
+        if (settings.excludedTraditions.includes(source.tradition)) {
+          return false;
+        }
+
+        return true;
+      });
+    }
+
+    function calculatePassageScore(source, context, history, settings) {
+      const { moon, season, virtue, theme, date } = context;
+      let score = 0;
+
       const phaseKeywords = [
         moon.phase.theme,
         theme,
@@ -1780,35 +2333,313 @@
         ...season.themes
       ].map(normalizeText);
 
-      const scored = wisdomSources.map((source, index) => {
-        let score = 0;
+      if (source.virtues.includes(virtue)) {
+        score += 18;
+      }
 
-        if (source.virtues.includes(virtue)) score += 7;
-        if (source.themes.some(t => normalizeText(t) === normalizeText(theme))) score += 6;
-        if (source.themes.some(t => phaseKeywords.includes(normalizeText(t)))) score += 3;
-        if (source.relevance === "Direct" && ["new", "full", "last-quarter", "first-quarter"].includes(moon.phase.key)) score += 1;
-        score += ((state.selectedDate.getDate() + index * 3) % 5) / 10;
+      if (
+        source.themes.some(
+          sourceTheme =>
+            normalizeText(sourceTheme) === normalizeText(theme)
+        )
+      ) {
+        score += 15;
+      }
 
-        return { source, score };
-      });
+      if (
+        source.themes.some(sourceTheme =>
+          phaseKeywords.includes(normalizeText(sourceTheme))
+        )
+      ) {
+        score += 7;
+      }
 
-      scored.sort((a, b) => b.score - a.score);
-      return scored[0].source;
+      if (
+        source.relevance === "Direct" &&
+        ["new", "full", "first-quarter", "last-quarter"].includes(
+          moon.phase.key
+        )
+      ) {
+        score += 4;
+      }
+
+      if (
+        settings.preferredTraditions.length &&
+        settings.preferredTraditions.includes(source.tradition)
+      ) {
+        score += 5;
+      }
+
+      if (
+        hasRecentPassage(
+          history,
+          source.id,
+          settings.passageCooldownDays,
+          date
+        )
+      ) {
+        score -= 100;
+      }
+
+      if (
+        hasRecentReference(
+          history,
+          source,
+          settings.referenceCooldownDays,
+          date
+        )
+      ) {
+        score -= 35;
+      }
+
+      if (
+        hasRecentTradition(
+          history,
+          source.tradition,
+          settings.traditionCooldownDays,
+          date
+        )
+      ) {
+        score -= 16;
+      }
+
+      const traditionAppearances = countTraditionAppearances(
+        history,
+        source.tradition,
+        30,
+        date
+      );
+
+      if (
+        traditionAppearances >=
+        settings.maxSameTraditionIn30Days
+      ) {
+        score -= 25;
+      } else {
+        score -= traditionAppearances * 3;
+      }
+
+      const isNiv =
+        source.translation === "New International Version (NIV)";
+
+      const recentNiv = getHistoryWithinDays(history, 14, date).filter(
+        entry => entry.translation === "New International Version (NIV)"
+      ).length;
+
+      const recentKjv = getHistoryWithinDays(history, 14, date).filter(
+        entry => entry.translation.includes("King James Version")
+      ).length;
+
+      if (
+        settings.translationPreference === "balanced" &&
+        isNiv &&
+        recentNiv > recentKjv
+      ) {
+        score -= 5;
+      }
+
+      if (
+        settings.translationPreference === "kjv-preferred" &&
+        isNiv
+      ) {
+        score -= 10;
+      }
+
+      if (
+        settings.translationPreference === "niv-preferred" &&
+        source.translation.includes("King James Version")
+      ) {
+        score -= 5;
+      }
+
+      const dailyVariation = seededNumber(`${dateKey(date)}-${source.id}`);
+      score += dailyVariation * 1.5;
+
+      return score;
     }
 
-    function buildSeasonalResponsibility(season, phase, theme) {
-      const lineBySeason = {
-        Spring: "Begin with care: prepare what you want to grow, and make room for learning.",
-        Summer: "Express capacity through disciplined work, useful service, and sustained attention.",
-        Autumn: "Examine what your actions have produced; practice gratitude, stewardship, and honest evaluation.",
-        Winter: "Protect what matters; simplify, rest, reflect, and prepare without hurry."
+    function selectDiversePassage(context, excludedSourceIds = []) {
+      const settings = state.diversitySettings;
+      const history = loadWisdomHistory();
+
+      const availableSources = getEligibleWisdomSources(settings).filter(
+        source => !excludedSourceIds.includes(source.id)
+      );
+
+      const ranked = availableSources
+        .map(source => ({
+          source,
+          score: calculatePassageScore(
+            source,
+            context,
+            history,
+            settings
+          )
+        }))
+        .sort((a, b) => b.score - a.score);
+
+      return ranked.length ? ranked[0].source : wisdomSources[0];
+    }
+
+    function getSavedDailyPassage(date) {
+      const selections = getStoredDailySelections();
+      const selectedId = selections[dateKey(date)];
+
+      if (!selectedId) {
+        return null;
+      }
+
+      return wisdomSources.find(source => source.id === selectedId) || null;
+    }
+
+    function saveDailyPassageSelection(date, source) {
+      const selections = getStoredDailySelections();
+      const key = dateKey(date);
+
+      selections[key] = source.id;
+      saveStoredDailySelections(selections);
+
+      const history = loadWisdomHistory();
+      const existingIndex = history.findIndex(entry => entry.date === key);
+
+      const record = {
+        date: key,
+        sourceId: source.id,
+        tradition: source.tradition,
+        translation: source.translation,
+        referenceKey: normalizedReference(source)
       };
 
-      return `${lineBySeason[season.name]} Today’s lunar emphasis is ${normalizeText(phase.theme)}; use it as a modern prompt for ${normalizeText(theme)}.`;
+      if (existingIndex >= 0) {
+        history[existingIndex] = record;
+      } else {
+        history.push(record);
+      }
+
+      const compactHistory = history
+        .sort((a, b) => a.date.localeCompare(b.date))
+        .slice(-365);
+
+      saveWisdomHistory(compactHistory);
+    }
+
+    function chooseDailyPassage(context) {
+      const existing = getSavedDailyPassage(context.date);
+
+      if (existing) {
+        return existing;
+      }
+
+      const selected = selectDiversePassage(context);
+      saveDailyPassageSelection(context.date, selected);
+
+      return selected;
+    }
+
+    function chooseAlternativeDailyPassage(context) {
+      const current = getSavedDailyPassage(context.date);
+      const alternative = selectDiversePassage(
+        context,
+        current ? [current.id] : []
+      );
+
+      saveDailyPassageSelection(context.date, alternative);
+      return alternative;
+    }
+
+    function getDiversityReason(source, context) {
+      const history = loadWisdomHistory();
+      const settings = state.diversitySettings;
+      const reasons = [];
+
+      if (source.virtues.includes(context.virtue)) {
+        reasons.push(`it supports today’s virtue of ${context.virtue}`);
+      }
+
+      if (
+        source.themes.some(
+          theme => normalizeText(theme) === normalizeText(context.theme)
+        )
+      ) {
+        reasons.push(`it directly matches today’s theme of ${context.theme}`);
+      }
+
+      if (
+        !hasRecentTradition(
+          history,
+          source.tradition,
+          settings.traditionCooldownDays,
+          context.date
+        )
+      ) {
+        reasons.push(`${source.tradition} has not appeared in the recent tradition cooldown window`);
+      }
+
+      if (
+        !hasRecentPassage(
+          history,
+          source.id,
+          settings.passageCooldownDays,
+          context.date
+        )
+      ) {
+        reasons.push(`this exact passage has not appeared in the recent ${settings.passageCooldownDays}-day passage cooldown window`);
+      }
+
+      if (
+        source.translation === "New International Version (NIV)" &&
+        settings.translationPreference === "balanced"
+      ) {
+        reasons.push("the app is balancing its limited NIV layer with other translations");
+      }
+
+      if (source.translation.includes("King James Version")) {
+        reasons.push("the KJV source is part of the app’s local historical-text layer");
+      }
+
+      return reasons;
+    }
+
+    function getDailyContext(date) {
+      const selected = startOfLocalDay(date);
+      const moon = getMoonData(selected);
+      const season = getSeasonData(selected);
+
+      const phaseVirtue = moon.phase.virtue;
+
+      const virtue = phaseVirtue.includes("/")
+        ? moon.phase.key === "waning-crescent"
+          ? "Wisdom"
+          : "Temperance"
+        : phaseVirtue;
+
+      const theme = chooseDailyTheme(moon.phase, season, selected);
+
+      const baseContext = {
+        date: selected,
+        moon,
+        season,
+        virtue,
+        theme
+      };
+
+      const passage = chooseDailyPassage(baseContext);
+
+      return {
+        ...baseContext,
+        passage,
+        responsibility: buildSeasonalResponsibility(
+          season,
+          moon.phase,
+          theme
+        )
+      };
     }
 
     function sourceMatchesQuery(source, query) {
-      if (!query) return true;
+      if (!query) {
+        return true;
+      }
 
       const haystack = [
         source.tradition,
@@ -1820,45 +2651,85 @@
         ...source.themes,
         ...source.virtues,
         ...source.keywords
-      ].join(" ").toLowerCase();
+      ]
+        .join(" ")
+        .toLowerCase();
 
       return haystack.includes(query);
     }
 
-    function loadJournalEntries() {
-      try {
-        const raw = localStorage.getItem("lunarWisdomJournalEntries");
-        return raw ? JSON.parse(raw) : {};
-      } catch {
-        return {};
+    function validateCopyrightedBibleUse(sources = wisdomSources) {
+      const nivSources = sources.filter(
+        source => source.translation === "New International Version (NIV)"
+      );
+
+      const nivVerseTotal = nivSources.reduce(
+        (total, source) => total + Number(source.verseCount || 0),
+        0
+      );
+
+      return {
+        nivSourceCount: nivSources.length,
+        nivVerseTotal,
+        withinBasicNivVerseLimit: nivVerseTotal <= 500,
+        warning:
+          nivVerseTotal > 450
+            ? "Approaching the NIV 500-verse quotation threshold. Review rights and permissions before adding more NIV text."
+            : null
+      };
+    }
+
+    function renderCopyrightBadge(source) {
+      if (source.translation === "New International Version (NIV)") {
+        return `<span class="tag">NIV · limited quotation</span>`;
       }
+
+      if (source.translation.includes("King James Version")) {
+        return `<span class="tag">KJV · public domain in U.S.</span>`;
+      }
+
+      return "";
     }
 
-    function saveJournalEntries() {
-      localStorage.setItem("lunarWisdomJournalEntries", JSON.stringify(state.journalEntries));
-    }
+    function renderNivAcknowledgement(source) {
+      if (source.translation !== "New International Version (NIV)") {
+        return "";
+      }
 
-    function openModal(title, html) {
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalContent").innerHTML = html;
-      const modal = document.getElementById("appModal");
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-    }
-
-    function closeModal() {
-      const modal = document.getElementById("appModal");
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
+      return `
+        <p class="small" style="margin-top:10px">
+          <strong>NIV acknowledgement:</strong>
+          ${escapeHTML(NIV_COPYRIGHT_NOTICE)}
+        </p>
+      `;
     }
 
     function renderToday() {
       const context = getDailyContext(state.selectedDate);
-      const { moon, season, virtue, theme, passage, responsibility } = context;
-      const previousMajor = getNextOrPreviousMajorPhase(state.selectedDate, -1);
-      const nextMajor = getNextOrPreviousMajorPhase(state.selectedDate, 1);
 
-      const savedEntry = state.journalEntries[dateKey(state.selectedDate)] || "";
+      const {
+        moon,
+        season,
+        virtue,
+        theme,
+        passage,
+        responsibility
+      } = context;
+
+      const previousMajor = getNextOrPreviousMajorPhase(
+        state.selectedDate,
+        -1
+      );
+
+      const nextMajor = getNextOrPreviousMajorPhase(
+        state.selectedDate,
+        1
+      );
+
+      const savedEntry =
+        state.journalEntries[dateKey(state.selectedDate)] || "";
+
+      const diversityReasons = getDiversityReason(passage, context);
 
       document.getElementById("screen-today").innerHTML = `
         <div class="section-heading">
@@ -1878,9 +2749,10 @@
         <article class="card hero-card">
           <div class="moon-hero">
             <div class="moon-glyph" aria-hidden="true">${moon.phase.icon}</div>
+
             <div>
               <p class="eyebrow">Astronomical data · approximate</p>
-              <h3 class="moon-title">${moon.phase.name}</h3>
+              <h3 class="moon-title">${escapeHTML(moon.phase.name)}</h3>
               <p class="moon-date">${escapeHTML(moon.phase.description)}</p>
             </div>
           </div>
@@ -1890,115 +2762,280 @@
               <span class="stat-label">Illumination</span>
               <span class="stat-value">${moon.illumination.toFixed(1)}%</span>
             </div>
+
             <div class="stat">
               <span class="stat-label">Lunar age</span>
               <span class="stat-value">${moon.age.toFixed(1)} days</span>
             </div>
+
             <div class="stat">
               <span class="stat-label">Cycle day</span>
               <span class="stat-value">Day ${moon.cycleDay}</span>
             </div>
+
             <div class="stat">
               <span class="stat-label">Next major phase</span>
-              <span class="stat-value">${nextMajor ? `${nextMajor.phase.icon} ${nextMajor.phase.name}` : "—"}</span>
+              <span class="stat-value">
+                ${
+                  nextMajor
+                    ? `${nextMajor.phase.icon} ${escapeHTML(
+                        nextMajor.phase.name
+                      )}`
+                    : "—"
+                }
+              </span>
             </div>
           </div>
         </article>
 
         <div class="two-column">
-          <article class="card season-card" style="--season-color:${season.color}">
+          <article
+            class="card season-card"
+            style="--season-color:${season.color}"
+          >
             <p class="eyebrow">Season · approximate astronomical boundary</p>
-            <h3 class="season-name">${season.icon} ${season.name}</h3>
-            <p class="body-copy"><strong>Seasonal responsibility:</strong> ${escapeHTML(season.responsibility)}</p>
-            <p class="body-copy" style="margin-top:8px">${escapeHTML(season.description)}</p>
-            <div class="progress-track" aria-label="${season.progress.toFixed(0)} percent through season">
-              <div class="progress-fill" style="--progress:${season.progress}%; --season-color:${season.color}"></div>
+            <h3 class="season-name">${season.icon} ${escapeHTML(
+              season.name
+            )}</h3>
+
+            <p class="body-copy">
+              <strong>Seasonal responsibility:</strong>
+              ${escapeHTML(season.responsibility)}
+            </p>
+
+            <p class="body-copy" style="margin-top:8px">
+              ${escapeHTML(season.description)}
+            </p>
+
+            <div
+              class="progress-track"
+              aria-label="${season.progress.toFixed(0)} percent through season"
+            >
+              <div
+                class="progress-fill"
+                style="--progress:${season.progress}%; --season-color:${season.color}"
+              ></div>
             </div>
+
             <p class="small" style="margin:9px 0 0">
-              ${season.daysRemaining} day${season.daysRemaining === 1 ? "" : "s"} until the next approximate seasonal boundary.
+              ${season.daysRemaining} day${
+                season.daysRemaining === 1 ? "" : "s"
+              } until the next approximate seasonal boundary.
             </p>
           </article>
 
           <article class="card">
             <p class="eyebrow">Modern Lunar Contemplative Framework</p>
             <span class="pill">App interpretation</span>
+
             <h3 class="theme-large">${escapeHTML(theme)}</h3>
-            <p class="body-copy"><strong>Virtue:</strong> ${escapeHTML(virtue)}</p>
-            <p class="theme-copy" style="margin-top:8px">
-              ${moon.phase.icon} ${escapeHTML(moon.phase.name)} → ${escapeHTML(moon.phase.virtue)} → ${escapeHTML(moon.phase.theme)}
+
+            <p class="body-copy">
+              <strong>Virtue:</strong> ${escapeHTML(virtue)}
             </p>
+
+            <p class="theme-copy" style="margin-top:8px">
+              ${moon.phase.icon}
+              ${escapeHTML(moon.phase.name)}
+              →
+              ${escapeHTML(moon.phase.virtue)}
+              →
+              ${escapeHTML(moon.phase.theme)}
+            </p>
+
             <p class="small" style="margin-top:10px">
-              This phase-to-virtue connection is a modern contemplative design of this app. It is not presented as an ancient universal teaching.
+              This phase-to-virtue connection is a modern contemplative design
+              of this app. It is not presented as an ancient universal teaching.
             </p>
           </article>
         </div>
 
         <article class="card quote-card">
           <p class="eyebrow">Wisdom · source text</p>
+
           <div class="result-topline">
             <span class="pill">${escapeHTML(passage.tradition)}</span>
-            <span class="relevance ${passage.relevance.toLowerCase()}">${escapeHTML(passage.relevance)}</span>
+
+            <span class="relevance ${passage.relevance.toLowerCase()}">
+              ${escapeHTML(passage.relevance)}
+            </span>
+
+            ${renderCopyrightBadge(passage)}
           </div>
+
           <blockquote>“${escapeHTML(passage.quote)}”</blockquote>
+
           <p class="source-meta">
-            <strong>${escapeHTML(passage.work)}</strong>, ${escapeHTML(passage.reference)}<br />
+            <strong>${escapeHTML(passage.work)}</strong>,
+            ${escapeHTML(passage.reference)}<br />
             ${escapeHTML(passage.translation)}
           </p>
+
           <p style="margin:12px 0 0">
-            <a href="${escapeHTML(passage.url)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>
+            <a
+              href="${escapeHTML(passage.url)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read source ↗
+            </a>
           </p>
+
+          ${renderNivAcknowledgement(passage)}
+
+          <div class="controls" style="justify-content:flex-start; margin:14px 0 0">
+            <button class="button secondary" id="anotherPassageButton">
+              Show another suitable passage
+            </button>
+          </div>
+
           <details>
             <summary>Why this passage?</summary>
+
             <p>
-              <strong>Moon connection:</strong> The current phase is ${escapeHTML(moon.phase.name)}, which this app associates with ${escapeHTML(moon.phase.theme)} through its modern framework.
+              <strong>Moon connection:</strong>
+              The current phase is ${escapeHTML(moon.phase.name)}, which this
+              app associates with ${escapeHTML(
+                moon.phase.theme
+              )} through its modern framework.
             </p>
+
             <p>
-              <strong>Virtue connection:</strong> The selected daily virtue is ${escapeHTML(virtue)}; this passage was chosen because its content is tagged to that ethical subject or a close theme.
+              <strong>Virtue connection:</strong>
+              The selected daily virtue is ${escapeHTML(
+                virtue
+              )}; this passage was chosen because its content is tagged to that
+              ethical subject or a close theme.
             </p>
+
             <p>
-              <strong>Season connection:</strong> The current ${escapeHTML(season.name)} responsibility is ${escapeHTML(season.responsibility)}, and today’s seasonal emphasis is ${escapeHTML(theme)}.
+              <strong>Season connection:</strong>
+              The current ${escapeHTML(
+                season.name
+              )} responsibility is ${escapeHTML(
+                season.responsibility
+              )}, and today’s seasonal emphasis is ${escapeHTML(theme)}.
             </p>
+
             <p>
-              <strong>Text relevance:</strong> ${escapeHTML(passage.relevance)} — ${escapeHTML(relevanceDescriptions[passage.relevance])}
+              <strong>Text relevance:</strong>
+              ${escapeHTML(passage.relevance)} —
+              ${escapeHTML(relevanceDescriptions[passage.relevance])}
             </p>
+
             <p>
-              The app does not claim that this historical source created or endorsed the lunar mapping above.
+              The app does not claim that this historical source created or
+              endorsed the lunar mapping above.
+            </p>
+          </details>
+
+          <details>
+            <summary>Why this tradition today?</summary>
+
+            <p>
+              This app uses relevance first and diversity second. It does not
+              treat traditions as interchangeable or force them into one shared
+              theology.
+            </p>
+
+            ${
+              diversityReasons.length
+                ? `
+                  <p>
+                    <strong>Rotation note:</strong>
+                    ${escapeHTML(
+                      diversityReasons.join("; ")
+                    )}.
+                  </p>
+                `
+                : `
+                  <p>
+                    This item was selected from the best available local source
+                    pool for today’s theme and virtue.
+                  </p>
+                `
+            }
+
+            <p>
+              The daily result is stored locally so it remains stable for this
+              date. “Show another suitable passage” replaces only this day’s
+              local selection.
             </p>
           </details>
         </article>
 
         <article class="card">
           <p class="eyebrow">Today’s responsibility · app interpretation</p>
+
           <p class="responsibility">${escapeHTML(responsibility)}</p>
-          <p class="small" style="margin-top:9px"><strong>Suggested action:</strong> ${escapeHTML(moon.phase.action)}</p>
+
+          <p class="small" style="margin-top:9px">
+            <strong>Suggested action:</strong>
+            ${escapeHTML(moon.phase.action)}
+          </p>
         </article>
 
         <article class="card">
           <p class="eyebrow">Reflection</p>
-          <p class="reflection-question">“${escapeHTML(moon.phase.question)}”</p>
-          <textarea id="todayReflectionInput" aria-label="Write today's reflection" placeholder="Write privately. This is stored only in this browser.">${escapeHTML(savedEntry)}</textarea>
-          <button class="button full" id="saveTodayReflection">Save reflection locally</button>
-          <p class="small" style="margin:10px 0 0">Journal entries remain in LocalStorage on this device/browser. No account and no network transmission are used.</p>
+
+          <p class="reflection-question">
+            “${escapeHTML(moon.phase.question)}”
+          </p>
+
+          <textarea
+            id="todayReflectionInput"
+            aria-label="Write today's reflection"
+            placeholder="Write privately. This is stored only in this browser."
+          >${escapeHTML(savedEntry)}</textarea>
+
+          <button class="button full" id="saveTodayReflection">
+            Save reflection locally
+          </button>
+
+          <p class="small" style="margin:10px 0 0">
+            Journal entries remain in LocalStorage on this device/browser.
+            No account and no network transmission are used.
+          </p>
         </article>
 
         <article class="card soft">
           <p class="eyebrow">Phase landmarks</p>
+
           <div class="phase-info-row">
             <span>Previous major phase</span>
-            <span>${previousMajor ? `${previousMajor.phase.icon} ${previousMajor.phase.name} · ${formatShortDate(previousMajor.date)}` : "Unavailable"}</span>
+            <span>
+              ${
+                previousMajor
+                  ? `${previousMajor.phase.icon} ${escapeHTML(
+                      previousMajor.phase.name
+                    )} · ${escapeHTML(formatShortDate(previousMajor.date))}`
+                  : "Unavailable"
+              }
+            </span>
           </div>
+
           <div class="phase-info-row">
             <span>Next major phase</span>
-            <span>${nextMajor ? `${nextMajor.phase.icon} ${nextMajor.phase.name} · ${formatShortDate(nextMajor.date)}` : "Unavailable"}</span>
+            <span>
+              ${
+                nextMajor
+                  ? `${nextMajor.phase.icon} ${escapeHTML(
+                      nextMajor.phase.name
+                    )} · ${escapeHTML(formatShortDate(nextMajor.date))}`
+                  : "Unavailable"
+              }
+            </span>
           </div>
         </article>
       `;
 
-      document.getElementById("todayPrevious").addEventListener("click", () => {
-        state.selectedDate = addDays(state.selectedDate, -1);
-        state.moonViewDate = new Date(state.selectedDate);
-        renderAll();
-      });
+      document
+        .getElementById("todayPrevious")
+        .addEventListener("click", () => {
+          state.selectedDate = addDays(state.selectedDate, -1);
+          state.moonViewDate = new Date(state.selectedDate);
+          renderAll();
+        });
 
       document.getElementById("todayNow").addEventListener("click", () => {
         state.selectedDate = startOfLocalDay(new Date());
@@ -2012,25 +3049,40 @@
         renderAll();
       });
 
-      document.getElementById("saveTodayReflection").addEventListener("click", () => {
-        const text = document.getElementById("todayReflectionInput").value.trim();
-        const key = dateKey(state.selectedDate);
+      document
+        .getElementById("anotherPassageButton")
+        .addEventListener("click", () => {
+          const currentContext = getDailyContext(state.selectedDate);
 
-        if (text) {
-          state.journalEntries[key] = text;
-        } else {
-          delete state.journalEntries[key];
-        }
+          chooseAlternativeDailyPassage(currentContext);
 
-        saveJournalEntries();
-        renderToday();
-        showToast("Reflection saved locally.");
-      });
+          renderAll();
+          showToast("A different suitable passage was selected.");
+        });
+
+      document
+        .getElementById("saveTodayReflection")
+        .addEventListener("click", () => {
+          const text = document
+            .getElementById("todayReflectionInput")
+            .value.trim();
+
+          const key = dateKey(state.selectedDate);
+
+          if (text) {
+            state.journalEntries[key] = text;
+          } else {
+            delete state.journalEntries[key];
+          }
+
+          saveJournalEntries();
+          renderToday();
+          showToast("Reflection saved locally.");
+        });
     }
 
     function renderMoon() {
       const selectedMoon = getMoonData(state.selectedDate);
-      const viewDate = state.moonViewDate;
 
       document.getElementById("screen-moon").innerHTML = `
         <div class="section-heading">
@@ -2043,22 +3095,59 @@
 
         <div class="card soft">
           <p class="notice">
-            <strong>Astronomical accuracy note:</strong> this offline build uses a mean 29.530588853-day synodic-month calculation anchored to a known new-moon epoch. It is an approximation for daily use. Exact event timestamps vary because the Moon’s orbit is not perfectly uniform; add an ephemeris/API module for precision planning.
+            <strong>Astronomical accuracy note:</strong>
+            this offline build uses a mean 29.530588853-day synodic-month
+            calculation anchored to a known new-moon epoch. It is an
+            approximation for daily use. Exact event timestamps vary because
+            the Moon’s orbit is not perfectly uniform; use an ephemeris or
+            astronomy API for precision planning.
           </p>
         </div>
 
         <div class="controls">
-          <button class="button ${state.moonViewMode === "month" ? "" : "secondary"}" id="showMonthView">Month</button>
-          <button class="button ${state.moonViewMode === "year" ? "" : "secondary"}" id="showYearView">Year</button>
+          <button
+            class="button ${
+              state.moonViewMode === "month" ? "" : "secondary"
+            }"
+            id="showMonthView"
+          >
+            Month
+          </button>
+
+          <button
+            class="button ${
+              state.moonViewMode === "year" ? "" : "secondary"
+            }"
+            id="showYearView"
+          >
+            Year
+          </button>
         </div>
 
         <article class="card">
           <div class="moon-hero">
-            <div class="moon-glyph" aria-hidden="true">${selectedMoon.phase.icon}</div>
+            <div class="moon-glyph" aria-hidden="true">
+              ${selectedMoon.phase.icon}
+            </div>
+
             <div>
               <p class="eyebrow">Selected day</p>
-              <h3 class="moon-title">${escapeHTML(formatDate(state.selectedDate, { month: "long", day: "numeric", year: "numeric" }))}</h3>
-              <p class="moon-date">${selectedMoon.phase.name} · ${selectedMoon.illumination.toFixed(1)}% illuminated · lunar age ${selectedMoon.age.toFixed(1)} days</p>
+
+              <h3 class="moon-title">
+                ${escapeHTML(
+                  formatDate(state.selectedDate, {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                  })
+                )}
+              </h3>
+
+              <p class="moon-date">
+                ${escapeHTML(selectedMoon.phase.name)}
+                · ${selectedMoon.illumination.toFixed(1)}% illuminated
+                · lunar age ${selectedMoon.age.toFixed(1)} days
+              </p>
             </div>
           </div>
         </article>
@@ -2066,15 +3155,19 @@
         <div id="moonViewContent"></div>
       `;
 
-      document.getElementById("showMonthView").addEventListener("click", () => {
-        state.moonViewMode = "month";
-        renderMoon();
-      });
+      document
+        .getElementById("showMonthView")
+        .addEventListener("click", () => {
+          state.moonViewMode = "month";
+          renderMoon();
+        });
 
-      document.getElementById("showYearView").addEventListener("click", () => {
-        state.moonViewMode = "year";
-        renderMoon();
-      });
+      document
+        .getElementById("showYearView")
+        .addEventListener("click", () => {
+          state.moonViewMode = "year";
+          renderMoon();
+        });
 
       if (state.moonViewMode === "month") {
         renderMonthView();
@@ -2085,7 +3178,14 @@
 
     function renderMonthView() {
       const container = document.getElementById("moonViewContent");
-      const monthStart = new Date(state.moonViewDate.getFullYear(), state.moonViewDate.getMonth(), 1, 12);
+
+      const monthStart = new Date(
+        state.moonViewDate.getFullYear(),
+        state.moonViewDate.getMonth(),
+        1,
+        12
+      );
+
       const year = monthStart.getFullYear();
       const month = monthStart.getMonth();
       const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -2098,7 +3198,8 @@
         .join("");
 
       let cells = "";
-      for (let i = 0; i < firstWeekday; i++) {
+
+      for (let index = 0; index < firstWeekday; index++) {
         cells += `<div class="day-cell blank"></div>`;
       }
 
@@ -2106,14 +3207,23 @@
         const date = new Date(year, month, day, 12);
         const moon = getMoonData(date);
         const key = dateKey(date);
+
         const classNames = [
           "day-cell",
           key === todayKey ? "today" : "",
           key === selectedKey ? "selected" : ""
-        ].filter(Boolean).join(" ");
+        ]
+          .filter(Boolean)
+          .join(" ");
 
         cells += `
-          <button class="${classNames}" data-calendar-date="${key}" aria-label="${formatDate(date)}: ${moon.phase.name}">
+          <button
+            class="${classNames}"
+            data-calendar-date="${key}"
+            aria-label="${escapeHTML(formatDate(date))}: ${escapeHTML(
+              moon.phase.name
+            )}"
+          >
             <span class="day-number">${day}</span>
             <span class="day-moon" aria-hidden="true">${moon.phase.icon}</span>
           </button>
@@ -2131,7 +3241,12 @@
             <h3>${escapeHTML(formatMonthYear(monthStart))}</h3>
             <button class="button secondary" id="nextMonth">→</button>
           </div>
-          <div class="calendar-grid" role="grid" aria-label="${formatMonthYear(monthStart)} lunar calendar">
+
+          <div
+            class="calendar-grid"
+            role="grid"
+            aria-label="${escapeHTML(formatMonthYear(monthStart))} lunar calendar"
+          >
             ${weekdays}
             ${cells}
           </div>
@@ -2139,21 +3254,34 @@
 
         <article class="card">
           <p class="eyebrow">Major phases · approximate dates</p>
+
           <div class="event-grid">
-            ${events.length ? events.map(event => `
-              <div class="phase-info-row">
-                <span>${event.phase.icon} ${escapeHTML(event.phase.name)}</span>
-                <span>${escapeHTML(formatShortDate(event.date))}</span>
-              </div>
-            `).join("") : `<p class="body-copy">No approximate major phase event was found in this month.</p>`}
+            ${
+              events.length
+                ? events
+                    .map(
+                      event => `
+                    <div class="phase-info-row">
+                      <span>${event.phase.icon} ${escapeHTML(
+                        event.phase.name
+                      )}</span>
+                      <span>${escapeHTML(formatShortDate(event.date))}</span>
+                    </div>
+                  `
+                    )
+                    .join("")
+                : `<p class="body-copy">No approximate major phase event was found in this month.</p>`
+            }
           </div>
         </article>
       `;
 
-      document.getElementById("previousMonth").addEventListener("click", () => {
-        state.moonViewDate = new Date(year, month - 1, 1, 12);
-        renderMoon();
-      });
+      document
+        .getElementById("previousMonth")
+        .addEventListener("click", () => {
+          state.moonViewDate = new Date(year, month - 1, 1, 12);
+          renderMoon();
+        });
 
       document.getElementById("nextMonth").addEventListener("click", () => {
         state.moonViewDate = new Date(year, month + 1, 1, 12);
@@ -2162,12 +3290,51 @@
 
       document.querySelectorAll("[data-calendar-date]").forEach(button => {
         button.addEventListener("click", () => {
-          const [y, m, d] = button.dataset.calendarDate.split("-").map(Number);
+          const [y, m, d] = button.dataset.calendarDate
+            .split("-")
+            .map(Number);
+
           state.selectedDate = new Date(y, m - 1, d, 12);
+          state.moonViewDate = new Date(state.selectedDate);
+
           renderAll();
           switchScreen("today");
         });
       });
+    }
+
+    function getSeasonMarkersForMonth(year, month) {
+      const boundaries = seasonBoundaries(year);
+
+      const markers = [
+        {
+          date: boundaries.marchEquinox,
+          name: "March equinox",
+          icon: "🌱"
+        },
+        {
+          date: boundaries.juneSolstice,
+          name: "June solstice",
+          icon: "☀️"
+        },
+        {
+          date: boundaries.septemberEquinox,
+          name: "September equinox",
+          icon: "🍂"
+        },
+        {
+          date: boundaries.decemberSolstice,
+          name: "December solstice",
+          icon: "❄️"
+        }
+      ];
+
+      return markers
+        .filter(marker => marker.date.getMonth() === month)
+        .map(marker => ({
+          ...marker,
+          day: marker.date.getDate()
+        }));
     }
 
     function renderYearView() {
@@ -2178,19 +3345,43 @@
       for (let month = 0; month < 12; month++) {
         const start = new Date(year, month, 1, 12);
         const end = new Date(year, month + 1, 0, 12);
+
         const events = findMajorPhasesInRange(start, end);
         const seasonalMarkers = getSeasonMarkersForMonth(year, month);
 
         monthCards.push(`
           <button class="card month-card" data-select-year-month="${month}">
-            <h3>${escapeHTML(formatDate(start, { month: "long" }))}</h3>
+            <h3>${escapeHTML(
+              formatDate(start, {
+                month: "long"
+              })
+            )}</h3>
+
             <div class="month-events">
-              ${events.slice(0, 5).map(event => `
-                <div class="month-event">${event.phase.icon} ${escapeHTML(event.phase.name)} · ${event.date.getDate()}</div>
-              `).join("")}
-              ${seasonalMarkers.map(marker => `
-                <div class="month-event">${marker.icon} ${escapeHTML(marker.name)} · ${marker.day}</div>
-              `).join("")}
+              ${events
+                .slice(0, 5)
+                .map(
+                  event => `
+                    <div class="month-event">
+                      ${event.phase.icon}
+                      ${escapeHTML(event.phase.name)}
+                      · ${event.date.getDate()}
+                    </div>
+                  `
+                )
+                .join("")}
+
+              ${seasonalMarkers
+                .map(
+                  marker => `
+                    <div class="month-event">
+                      ${marker.icon}
+                      ${escapeHTML(marker.name)}
+                      · ${marker.day}
+                    </div>
+                  `
+                )
+                .join("")}
             </div>
           </button>
         `);
@@ -2203,7 +3394,12 @@
             <h3>${year} lunar year</h3>
             <button class="button secondary" id="nextYear">→</button>
           </div>
-          <p class="small">Dates are local calendar approximations from the offline lunar and seasonal fallback engine.</p>
+
+          <p class="small">
+            Dates are local calendar approximations from the offline lunar and
+            seasonal fallback engine.
+          </p>
+
           <div class="month-grid" style="margin-top:13px">
             ${monthCards.join("")}
           </div>
@@ -2223,25 +3419,13 @@
       document.querySelectorAll("[data-select-year-month]").forEach(button => {
         button.addEventListener("click", () => {
           const month = Number(button.dataset.selectYearMonth);
+
           state.moonViewDate = new Date(year, month, 1, 12);
           state.moonViewMode = "month";
+
           renderMoon();
         });
       });
-    }
-
-    function getSeasonMarkersForMonth(year, month) {
-      const b = seasonBoundaries(year);
-      const all = [
-        { date: b.marchEquinox, name: "March equinox", icon: "🌱" },
-        { date: b.juneSolstice, name: "June solstice", icon: "☀️" },
-        { date: b.septemberEquinox, name: "September equinox", icon: "🍂" },
-        { date: b.decemberSolstice, name: "December solstice", icon: "❄️" }
-      ];
-
-      return all
-        .filter(marker => marker.date.getMonth() === month)
-        .map(marker => ({ ...marker, day: marker.date.getDate() }));
     }
 
     function renderSeasons() {
@@ -2257,24 +3441,42 @@
           </div>
         </div>
 
-        <article class="card season-card" style="--season-color:${current.color}">
+        <article
+          class="card season-card"
+          style="--season-color:${current.color}"
+        >
           <p class="eyebrow">Current season</p>
-          <h3 class="season-name">${current.icon} ${escapeHTML(current.name)}</h3>
+
+          <h3 class="season-name">
+            ${current.icon} ${escapeHTML(current.name)}
+          </h3>
+
           <p class="body-copy" style="margin-top:8px">
-            <strong>Responsibility:</strong> ${escapeHTML(current.responsibility)}
+            <strong>Responsibility:</strong>
+            ${escapeHTML(current.responsibility)}
           </p>
-          <p class="body-copy" style="margin-top:9px">${escapeHTML(current.description)}</p>
+
+          <p class="body-copy" style="margin-top:9px">
+            ${escapeHTML(current.description)}
+          </p>
+
           <div class="progress-track">
-            <div class="progress-fill" style="--progress:${current.progress}%; --season-color:${current.color}"></div>
+            <div
+              class="progress-fill"
+              style="--progress:${current.progress}%; --season-color:${current.color}"
+            ></div>
           </div>
+
           <div class="phase-info-row" style="margin-top:9px">
             <span>Season start</span>
             <span>${escapeHTML(formatShortDate(current.start))}</span>
           </div>
+
           <div class="phase-info-row">
             <span>Season end</span>
             <span>${escapeHTML(formatShortDate(current.end))}</span>
           </div>
+
           <div class="phase-info-row">
             <span>Days remaining</span>
             <span>${current.daysRemaining}</span>
@@ -2283,48 +3485,95 @@
 
         <article class="card">
           <p class="eyebrow">Hemisphere</p>
-          <label class="small" for="hemisphereSelect">Season names are shown for:</label>
+
+          <label class="small" for="hemisphereSelect">
+            Season names are shown for:
+          </label>
+
           <select id="hemisphereSelect" style="margin-top:8px">
-            <option value="north" ${hemisphere === "north" ? "selected" : ""}>Northern Hemisphere</option>
-            <option value="south" ${hemisphere === "south" ? "selected" : ""}>Southern Hemisphere</option>
+            <option value="north" ${
+              hemisphere === "north" ? "selected" : ""
+            }>
+              Northern Hemisphere
+            </option>
+
+            <option value="south" ${
+              hemisphere === "south" ? "selected" : ""
+            }>
+              Southern Hemisphere
+            </option>
           </select>
+
           <p class="small" style="margin-top:10px">
-            The date boundaries in this offline version are approximate local-calendar fallbacks. Exact astronomical equinox and solstice instants vary by year.
+            The date boundaries in this offline version are approximate
+            local-calendar fallbacks. Exact astronomical equinox and solstice
+            instants vary by year.
           </p>
         </article>
 
         <div class="event-grid">
-          ${seasons.map(season => `
-            <article class="card season-card" style="--season-color:${season.color}">
-              <p class="eyebrow">${season.icon} ${escapeHTML(season.name)}</p>
-              <h3 class="season-name">${escapeHTML(season.responsibility)}</h3>
-              <p class="body-copy" style="margin-top:7px">${escapeHTML(season.description)}</p>
-              <div class="label-list">
-                ${season.themes.map(theme => `<span class="tag">${escapeHTML(theme)}</span>`).join("")}
-              </div>
-            </article>
-          `).join("")}
+          ${seasons
+            .map(
+              season => `
+              <article
+                class="card season-card"
+                style="--season-color:${season.color}"
+              >
+                <p class="eyebrow">
+                  ${season.icon} ${escapeHTML(season.name)}
+                </p>
+
+                <h3 class="season-name">
+                  ${escapeHTML(season.responsibility)}
+                </h3>
+
+                <p class="body-copy" style="margin-top:7px">
+                  ${escapeHTML(season.description)}
+                </p>
+
+                <div class="label-list">
+                  ${season.themes
+                    .map(
+                      theme => `<span class="tag">${escapeHTML(theme)}</span>`
+                    )
+                    .join("")}
+                </div>
+              </article>
+            `
+            )
+            .join("")}
         </div>
 
         <article class="card soft">
           <p class="eyebrow">Interpretive scope</p>
+
           <p class="body-copy">
-            “Emergence,” “Expression,” “Harvest,” and “Preservation” are app-created contemplative responsibilities. They are not claimed as universal doctrines shared by all cultures, religions, or historical traditions.
+            “Emergence,” “Expression,” “Harvest,” and “Preservation” are
+            app-created contemplative responsibilities. They are not claimed
+            as universal doctrines shared by all cultures, religions, or
+            historical traditions.
           </p>
         </article>
       `;
 
-      document.getElementById("hemisphereSelect").addEventListener("change", event => {
-        localStorage.setItem("lunarWisdomHemisphere", event.target.value);
-        renderAll();
-      });
+      document
+        .getElementById("hemisphereSelect")
+        .addEventListener("change", event => {
+          localStorage.setItem(
+            STORAGE_KEYS.hemisphere,
+            event.target.value
+          );
+
+          renderAll();
+        });
     }
 
     function renderVirtues() {
       const selected = virtues[state.selectedVirtue];
+
       const relatedPassages = wisdomSources
         .filter(source => source.virtues.includes(state.selectedVirtue))
-        .slice(0, 4);
+        .slice(0, 6);
 
       document.getElementById("screen-virtues").innerHTML = `
         <div class="section-heading">
@@ -2336,45 +3585,122 @@
         </div>
 
         <div class="virtue-grid">
-          ${Object.entries(virtues).map(([name, virtue]) => `
-            <button class="virtue-button ${name === state.selectedVirtue ? "selected" : ""}" data-virtue="${escapeHTML(name)}">
-              <h3>${escapeHTML(name)}</h3>
-              <p>${escapeHTML(virtue.definition)}</p>
-            </button>
-          `).join("")}
+          ${Object.entries(virtues)
+            .map(
+              ([name, virtue]) => `
+              <button
+                class="virtue-button ${
+                  name === state.selectedVirtue ? "selected" : ""
+                }"
+                data-virtue="${escapeHTML(name)}"
+              >
+                <h3>${escapeHTML(name)}</h3>
+                <p>${escapeHTML(virtue.definition)}</p>
+              </button>
+            `
+            )
+            .join("")}
         </div>
 
         <article class="card virtue-detail" style="margin-top:14px">
           <p class="eyebrow">Selected virtue</p>
-          <h3>${escapeHTML(state.selectedVirtue)}</h3>
-          <p class="body-copy"><strong>Definition:</strong> ${escapeHTML(selected.definition)}</p>
-          <p class="body-copy" style="margin-top:10px"><strong>Practical meaning:</strong> ${escapeHTML(selected.practical)}</p>
-          <p class="body-copy" style="margin-top:10px"><strong>Daily-life example:</strong> ${escapeHTML(selected.example)}</p>
 
-          <p class="eyebrow" style="margin-top:18px">Ethical questions</p>
+          <h3>${escapeHTML(state.selectedVirtue)}</h3>
+
+          <p class="body-copy">
+            <strong>Definition:</strong>
+            ${escapeHTML(selected.definition)}
+          </p>
+
+          <p class="body-copy" style="margin-top:10px">
+            <strong>Practical meaning:</strong>
+            ${escapeHTML(selected.practical)}
+          </p>
+
+          <p class="body-copy" style="margin-top:10px">
+            <strong>Daily-life example:</strong>
+            ${escapeHTML(selected.example)}
+          </p>
+
+          <p class="eyebrow" style="margin-top:18px">
+            Ethical questions
+          </p>
+
           <div class="label-list">
-            ${selected.questions.map(question => `<span class="tag">${escapeHTML(question)}</span>`).join("")}
+            ${selected.questions
+              .map(
+                question => `<span class="tag">${escapeHTML(question)}</span>`
+              )
+              .join("")}
           </div>
 
-          <p class="eyebrow" style="margin-top:18px">Modern app associations</p>
-          <p class="body-copy"><strong>Lunar themes:</strong> ${escapeHTML(selected.lunar.join(" · "))}</p>
-          <p class="body-copy" style="margin-top:8px"><strong>Seasonal themes:</strong> ${escapeHTML(selected.seasonal.join(" · "))}</p>
-          <p class="small" style="margin-top:8px">These lunar/seasonal associations are app interpretations, not claims about the historical sources.</p>
+          <p class="eyebrow" style="margin-top:18px">
+            Modern app associations
+          </p>
+
+          <p class="body-copy">
+            <strong>Lunar themes:</strong>
+            ${escapeHTML(selected.lunar.join(" · "))}
+          </p>
+
+          <p class="body-copy" style="margin-top:8px">
+            <strong>Seasonal themes:</strong>
+            ${escapeHTML(selected.seasonal.join(" · "))}
+          </p>
+
+          <p class="small" style="margin-top:8px">
+            These lunar and seasonal associations are app interpretations, not
+            claims about the historical sources.
+          </p>
         </article>
 
         <article class="card quote-card">
           <p class="eyebrow">Related source texts</p>
-          ${relatedPassages.length ? relatedPassages.map(source => `
-            <div class="library-result" style="margin-top:10px">
-              <div class="result-topline">
-                <span class="pill">${escapeHTML(source.tradition)}</span>
-                <span class="relevance ${source.relevance.toLowerCase()}">${escapeHTML(source.relevance)}</span>
-              </div>
-              <h3>${escapeHTML(source.work)} · ${escapeHTML(source.reference)}</h3>
-              <blockquote>“${escapeHTML(source.quote)}”</blockquote>
-              <p class="source-meta">${escapeHTML(source.translation)} · <a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">Read source ↗</a></p>
-            </div>
-          `).join("") : `<p class="body-copy">No source record is currently tagged to this virtue.</p>`}
+
+          ${
+            relatedPassages.length
+              ? relatedPassages
+                  .map(
+                    source => `
+                    <div class="library-result" style="margin-top:10px">
+                      <div class="result-topline">
+                        <span class="pill">${escapeHTML(
+                          source.tradition
+                        )}</span>
+
+                        <span class="relevance ${source.relevance.toLowerCase()}">
+                          ${escapeHTML(source.relevance)}
+                        </span>
+
+                        ${renderCopyrightBadge(source)}
+                      </div>
+
+                      <h3>
+                        ${escapeHTML(source.work)}
+                        · ${escapeHTML(source.reference)}
+                      </h3>
+
+                      <blockquote>“${escapeHTML(source.quote)}”</blockquote>
+
+                      <p class="source-meta">
+                        ${escapeHTML(source.translation)}
+                        ·
+                        <a
+                          href="${escapeHTML(source.url)}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Read source ↗
+                        </a>
+                      </p>
+
+                      ${renderNivAcknowledgement(source)}
+                    </div>
+                  `
+                  )
+                  .join("")
+              : `<p class="body-copy">No source record is currently tagged to this virtue.</p>`
+          }
         </article>
       `;
 
@@ -2384,94 +3710,6 @@
           renderVirtues();
         });
       });
-    }
-
-    function renderWisdom() {
-      const traditions = ["All", ...new Set(wisdomSources.map(source => source.tradition))];
-      const query = normalizeText(state.libraryQuery);
-
-      const results = wisdomSources.filter(source => {
-        const traditionMatch = state.libraryTradition === "All" || source.tradition === state.libraryTradition;
-        return traditionMatch && sourceMatchesQuery(source, query);
-      });
-
-      const context = getDailyContext(state.selectedDate);
-      const comparisonSources = getMultiTraditionComparison(context);
-
-      document.getElementById("screen-wisdom").innerHTML = `
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Wisdom library</p>
-            <h2>Texts, context, and comparison</h2>
-            <p>Short, attributed passages. Search uses local metadata only.</p>
-          </div>
-        </div>
-
-        <article class="card">
-          <div class="library-filters">
-            <input id="wisdomSearch" type="search" value="${escapeHTML(state.libraryQuery)}" placeholder="Search anger, duty, justice, desire, rest, truth…" aria-label="Search wisdom library" />
-            <select id="traditionFilter" aria-label="Filter by tradition">
-              ${traditions.map(tradition => `<option value="${escapeHTML(tradition)}" ${tradition === state.libraryTradition ? "selected" : ""}>${escapeHTML(tradition)}</option>`).join("")}
-            </select>
-          </div>
-          <p class="small">${results.length} matching passage${results.length === 1 ? "" : "s"}. A relevance label explains whether a connection is direct, metaphorical, or thematic.</p>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">Today’s multi-tradition view</p>
-          <h3 class="theme-large">${escapeHTML(context.theme)}</h3>
-          <p class="body-copy">The entries below are selected for a shared ethical question, not to suggest that their traditions teach identical doctrines.</p>
-          <div class="comparison-grid" style="margin-top:13px">
-            ${comparisonSources.map(source => `
-              <div class="comparison-card">
-                <h3>${escapeHTML(source.tradition)}</h3>
-                <p>“${escapeHTML(source.quote)}”</p>
-                <p class="small" style="margin-top:8px">${escapeHTML(source.work)} · ${escapeHTML(source.reference)}</p>
-              </div>
-            `).join("")}
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">Passages</p>
-          <div style="display:grid; gap:10px; margin-top:10px">
-            ${results.length ? results.map(source => renderLibraryResult(source)).join("") : `
-              <div class="empty-state">
-                No local source record matches that search. Try a virtue, tradition, work, or keyword such as “compassion,” “discipline,” “change,” or “fear.”
-              </div>
-            `}
-          </div>
-        </article>
-      `;
-
-      document.getElementById("wisdomSearch").addEventListener("input", event => {
-        state.libraryQuery = event.target.value;
-        renderWisdom();
-      });
-
-      document.getElementById("traditionFilter").addEventListener("change", event => {
-        state.libraryTradition = event.target.value;
-        renderWisdom();
-      });
-    }
-
-    function renderLibraryResult(source) {
-      return `
-        <div class="library-result">
-          <div class="result-topline">
-            <span class="pill">${escapeHTML(source.tradition)}</span>
-            <span class="relevance ${source.relevance.toLowerCase()}">${escapeHTML(source.relevance)}</span>
-          </div>
-          <h3>${escapeHTML(source.work)} · ${escapeHTML(source.reference)}</h3>
-          <blockquote>“${escapeHTML(source.quote)}”</blockquote>
-          <p class="source-meta">
-            ${escapeHTML(source.translation)}<br />
-            <strong>Tags:</strong> ${escapeHTML(source.themes.join(" · "))}<br />
-            <a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>
-          </p>
-          <p class="small" style="margin:9px 0 0"><strong>${escapeHTML(source.relevance)}:</strong> ${escapeHTML(relevanceDescriptions[source.relevance])}</p>
-        </div>
-      `;
     }
 
     function getMultiTraditionComparison(context) {
@@ -2484,29 +3722,431 @@
         "Stoic"
       ];
 
+      const eligible = getEligibleWisdomSources();
+
       const matches = [];
 
       desiredTraditions.forEach(tradition => {
-        const candidates = wisdomSources
+        const candidates = eligible
           .filter(source => source.tradition === tradition)
           .map(source => {
             let score = 0;
-            if (source.virtues.includes(context.virtue)) score += 5;
-            if (source.themes.some(theme => normalizeText(theme) === normalizeText(context.theme))) score += 4;
-            if (source.keywords.some(keyword => normalizeText(keyword) === normalizeText(context.theme))) score += 2;
-            return { source, score };
+
+            if (source.virtues.includes(context.virtue)) {
+              score += 5;
+            }
+
+            if (
+              source.themes.some(
+                theme =>
+                  normalizeText(theme) === normalizeText(context.theme)
+              )
+            ) {
+              score += 4;
+            }
+
+            if (
+              source.keywords.some(
+                keyword =>
+                  normalizeText(keyword) === normalizeText(context.theme)
+              )
+            ) {
+              score += 2;
+            }
+
+            return {
+              source,
+              score
+            };
           })
           .sort((a, b) => b.score - a.score);
 
-        if (candidates.length) matches.push(candidates[0].source);
+        if (candidates.length) {
+          matches.push(candidates[0].source);
+        }
       });
 
       return matches;
     }
 
+    function renderLibraryResult(source) {
+      return `
+        <div class="library-result">
+          <div class="result-topline">
+            <span class="pill">${escapeHTML(source.tradition)}</span>
+
+            <span class="relevance ${source.relevance.toLowerCase()}">
+              ${escapeHTML(source.relevance)}
+            </span>
+
+            ${renderCopyrightBadge(source)}
+          </div>
+
+          <h3>
+            ${escapeHTML(source.work)}
+            · ${escapeHTML(source.reference)}
+          </h3>
+
+          <blockquote>“${escapeHTML(source.quote)}”</blockquote>
+
+          <p class="source-meta">
+            ${escapeHTML(source.translation)}<br />
+            <strong>Tags:</strong>
+            ${escapeHTML(source.themes.join(" · "))}<br />
+
+            <a
+              href="${escapeHTML(source.url)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read source ↗
+            </a>
+          </p>
+
+          ${renderNivAcknowledgement(source)}
+
+          <p class="small" style="margin:9px 0 0">
+            <strong>${escapeHTML(source.relevance)}:</strong>
+            ${escapeHTML(relevanceDescriptions[source.relevance])}
+          </p>
+        </div>
+      `;
+    }
+
+    function renderDiversitySettings() {
+      const settings = state.diversitySettings;
+      const traditions = [
+        ...new Set(wisdomSources.map(source => source.tradition))
+      ].sort();
+
+      const selectedTraditions = new Set(settings.preferredTraditions);
+
+      return `
+        <article class="card">
+          <p class="eyebrow">Daily quote diversity</p>
+
+          <p class="body-copy">
+            Relevance comes first: a passage must fit the day’s virtue, theme,
+            Moon phase, or season. Diversity is then used to avoid repetition
+            and reduce one-tradition dominance.
+          </p>
+
+          <div class="switch-line" style="margin-top:10px">
+            <div>
+              <label for="allowNivToggle">Allow limited NIV passages</label>
+              <p>Uses only the small curated NIV layer in this local app.</p>
+            </div>
+
+            <input
+              id="allowNivToggle"
+              type="checkbox"
+              ${settings.allowNiv ? "checked" : ""}
+              aria-label="Allow limited NIV passages"
+            />
+          </div>
+
+          <div class="switch-line">
+            <div>
+              <label for="translationPreference">Bible translation preference</label>
+              <p>Balanced avoids overusing either KJV or the limited NIV layer.</p>
+            </div>
+
+            <select id="translationPreference" style="width:auto; min-width:170px">
+              <option value="balanced" ${
+                settings.translationPreference === "balanced" ? "selected" : ""
+              }>
+                Balanced
+              </option>
+
+              <option value="kjv-preferred" ${
+                settings.translationPreference === "kjv-preferred" ? "selected" : ""
+              }>
+                KJV preferred
+              </option>
+
+              <option value="niv-preferred" ${
+                settings.translationPreference === "niv-preferred" ? "selected" : ""
+              }>
+                NIV preferred
+              </option>
+            </select>
+          </div>
+
+          <div class="switch-line">
+            <div>
+              <label for="clearQuoteHistory">Reset quote rotation</label>
+              <p>Deletes only quote-selection history and daily quote choices. Your journal is unaffected.</p>
+            </div>
+
+            <button class="button danger" id="clearQuoteHistory">
+              Reset
+            </button>
+          </div>
+
+          <details>
+            <summary>Preferred traditions</summary>
+            <p>These receive a modest scoring bonus but do not exclude other traditions that better fit the day.</p>
+
+            <div class="label-list">
+              ${traditions
+                .map(
+                  tradition => `
+                    <label class="tag" style="cursor:pointer">
+                      <input
+                        type="checkbox"
+                        class="preferredTraditionToggle"
+                        value="${escapeHTML(tradition)}"
+                        ${selectedTraditions.has(tradition) ? "checked" : ""}
+                        style="width:auto;height:auto;vertical-align:middle;margin-right:5px"
+                      />
+                      ${escapeHTML(tradition)}
+                    </label>
+                  `
+                )
+                .join("")}
+            </div>
+          </details>
+
+          <p class="small" style="margin-top:12px">
+            Current rotation rules: exact-passage cooldown ${
+              settings.passageCooldownDays
+            } days; same-reference cooldown ${
+              settings.referenceCooldownDays
+            } days; tradition cooldown ${
+              settings.traditionCooldownDays
+            } days. The same biblical reference is discouraged across KJV and NIV during the reference cooldown.
+          </p>
+        </article>
+      `;
+    }
+
+    function renderWisdom() {
+      const traditions = [
+        "All",
+        ...new Set(wisdomSources.map(source => source.tradition))
+      ];
+
+      const query = normalizeText(state.libraryQuery);
+
+      const results = wisdomSources.filter(source => {
+        const traditionMatches =
+          state.libraryTradition === "All" ||
+          source.tradition === state.libraryTradition;
+
+        return traditionMatches && sourceMatchesQuery(source, query);
+      });
+
+      const context = getDailyContext(state.selectedDate);
+      const comparisonSources = getMultiTraditionComparison(context);
+      const nivUsage = validateCopyrightedBibleUse();
+
+      document.getElementById("screen-wisdom").innerHTML = `
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Wisdom library</p>
+            <h2>Texts, context, and comparison</h2>
+            <p>Short, attributed passages. Search uses local metadata only.</p>
+          </div>
+        </div>
+
+        ${renderDiversitySettings()}
+
+        <article class="card">
+          <div class="library-filters">
+            <input
+              id="wisdomSearch"
+              type="search"
+              value="${escapeHTML(state.libraryQuery)}"
+              placeholder="Search anger, duty, justice, desire, rest, truth…"
+              aria-label="Search wisdom library"
+            />
+
+            <select
+              id="traditionFilter"
+              aria-label="Filter by tradition"
+            >
+              ${traditions
+                .map(
+                  tradition => `
+                    <option
+                      value="${escapeHTML(tradition)}"
+                      ${
+                        tradition === state.libraryTradition
+                          ? "selected"
+                          : ""
+                      }
+                    >
+                      ${escapeHTML(tradition)}
+                    </option>
+                  `
+                )
+                .join("")}
+            </select>
+          </div>
+
+          <p class="small">
+            ${results.length} matching passage${
+              results.length === 1 ? "" : "s"
+            }. A relevance label explains whether a connection is direct,
+            metaphorical, or thematic.
+          </p>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Today’s multi-tradition view</p>
+          <h3 class="theme-large">${escapeHTML(context.theme)}</h3>
+
+          <p class="body-copy">
+            The entries below are selected for a shared ethical question, not
+            to suggest that their traditions teach identical doctrines.
+          </p>
+
+          <div class="comparison-grid" style="margin-top:13px">
+            ${comparisonSources
+              .map(
+                source => `
+                <div class="comparison-card">
+                  <h3>${escapeHTML(source.tradition)}</h3>
+
+                  <p>“${escapeHTML(source.quote)}”</p>
+
+                  <p class="small" style="margin-top:8px">
+                    ${escapeHTML(source.work)}
+                    · ${escapeHTML(source.reference)}<br />
+                    ${escapeHTML(source.translation)}
+                  </p>
+
+                  ${renderNivAcknowledgement(source)}
+                </div>
+              `
+              )
+              .join("")}
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Bible translation and rights status</p>
+
+          <div class="phase-info-row">
+            <span>Bundled KJV records</span>
+            <span>${
+              wisdomSources.filter(source =>
+                source.translation.includes("King James Version")
+              ).length
+            }</span>
+          </div>
+
+          <div class="phase-info-row">
+            <span>Bundled NIV records</span>
+            <span>${nivUsage.nivSourceCount}</span>
+          </div>
+
+          <div class="phase-info-row">
+            <span>NIV tracked verses</span>
+            <span>${nivUsage.nivVerseTotal} / 500</span>
+          </div>
+
+          ${
+            nivUsage.warning
+              ? `<p class="warning" style="margin:12px 0 0">${escapeHTML(
+                  nivUsage.warning
+                )}</p>`
+              : `
+                <p class="small" style="margin:12px 0 0">
+                  NIV is included only as a limited, curated, short-quotation
+                  layer. This counter is a development guardrail, not legal
+                  advice and not a complete permissions analysis.
+                </p>
+              `
+          }
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Passages</p>
+
+          <div style="display:grid; gap:10px; margin-top:10px">
+            ${
+              results.length
+                ? results.map(source => renderLibraryResult(source)).join("")
+                : `
+                  <div class="empty-state">
+                    No local source record matches that search. Try a virtue,
+                    tradition, work, or keyword such as “compassion,”
+                    “discipline,” “change,” or “fear.”
+                  </div>
+                `
+            }
+          </div>
+        </article>
+      `;
+
+      document.getElementById("wisdomSearch").addEventListener("input", event => {
+        state.libraryQuery = event.target.value;
+        renderWisdom();
+      });
+
+      document
+        .getElementById("traditionFilter")
+        .addEventListener("change", event => {
+          state.libraryTradition = event.target.value;
+          renderWisdom();
+        });
+
+      document
+        .getElementById("allowNivToggle")
+        .addEventListener("change", event => {
+          state.diversitySettings.allowNiv = event.target.checked;
+          saveDiversitySettings();
+          renderAll();
+        });
+
+      document
+        .getElementById("translationPreference")
+        .addEventListener("change", event => {
+          state.diversitySettings.translationPreference = event.target.value;
+          saveDiversitySettings();
+          renderAll();
+        });
+
+      document
+        .getElementById("clearQuoteHistory")
+        .addEventListener("click", () => {
+          const confirmed = confirm(
+            "Reset the local daily quote rotation? This deletes quote history and saved daily quote choices, but does not delete journal entries."
+          );
+
+          if (!confirmed) {
+            return;
+          }
+
+          localStorage.removeItem(STORAGE_KEYS.quoteHistory);
+          localStorage.removeItem(STORAGE_KEYS.dailySelections);
+
+          renderAll();
+          showToast("Daily quote rotation reset.");
+        });
+
+      document
+        .querySelectorAll(".preferredTraditionToggle")
+        .forEach(toggle => {
+          toggle.addEventListener("change", () => {
+            const selected = Array.from(
+              document.querySelectorAll(".preferredTraditionToggle:checked")
+            ).map(input => input.value);
+
+            state.diversitySettings.preferredTraditions = selected;
+            saveDiversitySettings();
+            renderAll();
+          });
+        });
+    }
+
     function renderJournal() {
-      const entries = Object.entries(state.journalEntries)
-        .sort(([a], [b]) => b.localeCompare(a));
+      const entries = Object.entries(state.journalEntries).sort(
+        ([a], [b]) => b.localeCompare(a)
+      );
+
+      const selectedKey = dateKey(state.selectedDate);
 
       document.getElementById("screen-journal").innerHTML = `
         <div class="section-heading">
@@ -2519,158 +4159,359 @@
 
         <article class="card">
           <p class="eyebrow">Write for selected day</p>
-          <p class="body-copy">${escapeHTML(formatDate(state.selectedDate))}</p>
-          <textarea id="journalEditor" aria-label="Journal entry for selected day" placeholder="Write your reflection privately…">${escapeHTML(state.journalEntries[dateKey(state.selectedDate)] || "")}</textarea>
+
+          <p class="body-copy">
+            ${escapeHTML(formatDate(state.selectedDate))}
+          </p>
+
+          <textarea
+            id="journalEditor"
+            aria-label="Journal entry for selected day"
+            placeholder="Write your reflection privately…"
+          >${escapeHTML(state.journalEntries[selectedKey] || "")}</textarea>
+
           <div class="journal-toolbar">
-            <button class="button" id="saveJournalEntry">Save locally</button>
-            <button class="button secondary" id="goTodayForJournal">Use today</button>
-            <button class="button danger ${state.journalEntries[dateKey(state.selectedDate)] ? "" : "hidden"}" id="deleteSelectedEntry">Delete this entry</button>
+            <button class="button" id="saveJournalEntry">
+              Save locally
+            </button>
+
+            <button class="button secondary" id="goTodayForJournal">
+              Use today
+            </button>
+
+            <button
+              class="button danger ${
+                state.journalEntries[selectedKey] ? "" : "hidden"
+              }"
+              id="deleteSelectedEntry"
+            >
+              Delete this entry
+            </button>
           </div>
-          <p class="small">No account is required. Clearing this browser’s site data may remove entries; export is not included in this basic version.</p>
+
+          <p class="small">
+            No account is required. Clearing this browser’s site data may
+            remove entries; export is not included in this basic version.
+          </p>
         </article>
 
         <article class="card">
           <p class="eyebrow">Previous entries</p>
+
           <div style="display:grid; gap:10px; margin-top:10px">
-            ${entries.length ? entries.map(([key, text]) => `
-              <div class="journal-entry">
-                <div class="journal-entry-header">
-                  <h3>${escapeHTML(formatDateFromKey(key))}</h3>
-                  <div class="journal-actions">
-                    <button class="mini-button" data-edit-entry="${key}">Edit</button>
-                    <button class="mini-button" data-delete-entry="${key}">Delete</button>
+            ${
+              entries.length
+                ? entries
+                    .map(
+                      ([key, text]) => `
+                      <div class="journal-entry">
+                        <div class="journal-entry-header">
+                          <h3>${escapeHTML(formatDateFromKey(key))}</h3>
+
+                          <div class="journal-actions">
+                            <button
+                              class="mini-button"
+                              data-edit-entry="${key}"
+                            >
+                              Edit
+                            </button>
+
+                            <button
+                              class="mini-button"
+                              data-delete-entry="${key}"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+
+                        <p>${escapeHTML(text)}</p>
+                      </div>
+                    `
+                    )
+                    .join("")
+                : `
+                  <div class="empty-state">
+                    No saved reflections yet. Use Today or the editor above to
+                    add one.
                   </div>
-                </div>
-                <p>${escapeHTML(text)}</p>
-              </div>
-            `).join("") : `
-              <div class="empty-state">
-                No saved reflections yet. Use Today or the editor above to add one.
-              </div>
-            `}
+                `
+            }
           </div>
         </article>
       `;
 
-      document.getElementById("saveJournalEntry").addEventListener("click", () => {
-        const text = document.getElementById("journalEditor").value.trim();
-        const key = dateKey(state.selectedDate);
-        if (text) {
-          state.journalEntries[key] = text;
-        } else {
-          delete state.journalEntries[key];
-        }
-        saveJournalEntries();
-        renderJournal();
-        showToast("Journal saved locally.");
-      });
+      document
+        .getElementById("saveJournalEntry")
+        .addEventListener("click", () => {
+          const text = document.getElementById("journalEditor").value.trim();
 
-      document.getElementById("goTodayForJournal").addEventListener("click", () => {
-        state.selectedDate = startOfLocalDay(new Date());
-        renderAll();
-      });
+          if (text) {
+            state.journalEntries[selectedKey] = text;
+          } else {
+            delete state.journalEntries[selectedKey];
+          }
+
+          saveJournalEntries();
+          renderJournal();
+          showToast("Journal saved locally.");
+        });
+
+      document
+        .getElementById("goTodayForJournal")
+        .addEventListener("click", () => {
+          state.selectedDate = startOfLocalDay(new Date());
+          state.moonViewDate = new Date(state.selectedDate);
+          renderAll();
+        });
 
       const deleteSelected = document.getElementById("deleteSelectedEntry");
+
       if (deleteSelected) {
         deleteSelected.addEventListener("click", () => {
-          if (confirm("Delete this local journal entry? This cannot be undone.")) {
-            delete state.journalEntries[dateKey(state.selectedDate)];
-            saveJournalEntries();
-            renderJournal();
-            showToast("Journal entry deleted.");
+          const confirmed = confirm(
+            "Delete this local journal entry? This cannot be undone."
+          );
+
+          if (!confirmed) {
+            return;
           }
+
+          delete state.journalEntries[selectedKey];
+          saveJournalEntries();
+          renderJournal();
+          showToast("Journal entry deleted.");
         });
       }
 
       document.querySelectorAll("[data-edit-entry]").forEach(button => {
         button.addEventListener("click", () => {
           state.selectedDate = parseDateKey(button.dataset.editEntry);
+          state.moonViewDate = new Date(state.selectedDate);
+
           switchScreen("journal");
           renderAll();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
         });
       });
 
       document.querySelectorAll("[data-delete-entry]").forEach(button => {
         button.addEventListener("click", () => {
           const key = button.dataset.deleteEntry;
-          if (confirm(`Delete the local journal entry for ${formatDateFromKey(key)}? This cannot be undone.`)) {
-            delete state.journalEntries[key];
-            saveJournalEntries();
-            renderJournal();
-            showToast("Journal entry deleted.");
+
+          const confirmed = confirm(
+            `Delete the local journal entry for ${formatDateFromKey(
+              key
+            )}? This cannot be undone.`
+          );
+
+          if (!confirmed) {
+            return;
           }
+
+          delete state.journalEntries[key];
+          saveJournalEntries();
+          renderJournal();
+          showToast("Journal entry deleted.");
         });
       });
     }
 
-    function parseDateKey(key) {
-      const [year, month, day] = key.split("-").map(Number);
-      return new Date(year, month - 1, day, 12);
+    function openModal(title, html) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalContent").innerHTML = html;
+
+      const modal = document.getElementById("appModal");
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
     }
 
-    function formatDateFromKey(key) {
-      return formatDate(parseDateKey(key), { weekday: "short", month: "long", day: "numeric", year: "numeric" });
+    function closeModal() {
+      const modal = document.getElementById("appModal");
+
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
     }
 
     function renderLegend() {
-      openModal("Information legend", `
-        <p class="body-copy">Lunar Wisdom separates measurement, historical material, and modern reflection. The labels are part of the app’s intellectual-honesty design.</p>
-        <div class="legend">
-          <div class="legend-item">
-            <span class="legend-dot astronomy"></span>
-            <span><strong>Astronomical Data</strong><br />Scientifically calculated or approximated lunar and seasonal information. This offline build clearly marks its fallback calculations as approximate.</span>
+      const nivUsage = validateCopyrightedBibleUse();
+
+      openModal(
+        "Information, sources, and rights",
+        `
+          <p class="body-copy">
+            Lunar Wisdom separates measurement, historical material, and
+            modern reflection. These distinctions are part of the app’s
+            intellectual-honesty design.
+          </p>
+
+          <div class="legend">
+            <div class="legend-item">
+              <span class="legend-dot astronomy"></span>
+              <span>
+                <strong>Astronomical Data</strong><br />
+                Scientifically calculated or approximated lunar and seasonal
+                information. This offline build clearly marks its fallback
+                calculations as approximate.
+              </span>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-dot source-text"></span>
+              <span>
+                <strong>Source Text</strong><br />
+                Historical religious or philosophical material, shown with work,
+                reference, translation/version, and a source link.
+              </span>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-dot tradition"></span>
+              <span>
+                <strong>Traditional Interpretation</strong><br />
+                Reserved for interpretations explicitly documented from a
+                particular tradition. This starter build does not broadly
+                assign undocumented traditional lunar meanings.
+              </span>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-dot app-interpretation"></span>
+              <span>
+                <strong>App Interpretation</strong><br />
+                A modern thematic connection created by Lunar Wisdom, including
+                the Lunar Virtue Cycle and seasonal responsibilities.
+              </span>
+            </div>
           </div>
-          <div class="legend-item">
-            <span class="legend-dot source-text"></span>
-            <span><strong>Source Text</strong><br />Historical religious or philosophical material, shown with work, reference, translation/version, and a source link.</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot tradition"></span>
-            <span><strong>Traditional Interpretation</strong><br />Reserved for interpretations explicitly documented from a particular tradition. This starter build does not broadly assign undocumented traditional lunar meanings.</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot app-interpretation"></span>
-            <span><strong>App Interpretation</strong><br />A modern thematic connection created by Lunar Wisdom, including the Lunar Virtue Cycle and seasonal responsibilities.</span>
-          </div>
-        </div>
-        <hr style="border:0;border-top:1px solid var(--line);margin:17px 0" />
-        <p class="small">
-          The app does not offer horoscopes, predictions, scientific claims about spiritual effects, or universal claims about what historical traditions “really mean.”
-        </p>
-      `);
+
+          <hr style="border:0;border-top:1px solid var(--line);margin:17px 0" />
+
+          <p class="eyebrow">Daily diversity rules</p>
+
+          <p class="small">
+            The daily wisdom engine scores relevance first, then applies local
+            cooldowns to reduce repetition. It discourages the same exact
+            passage for 30 days, the same biblical reference across KJV/NIV for
+            14 days, and the same tradition for 4 days when other relevant
+            material is available.
+          </p>
+
+          <p class="small" style="margin-top:12px">
+            Diversity does not mean that traditions are interchangeable or that
+            the app claims they share one theology. It means multiple traditions
+            are given opportunities to appear when they genuinely fit the day’s
+            ethical context.
+          </p>
+
+          <hr style="border:0;border-top:1px solid var(--line);margin:17px 0" />
+
+          <p class="eyebrow">Bible translations</p>
+
+          <p class="small">
+            <strong>King James Version:</strong>
+            The KJV is generally treated as public domain in the United States.
+            The Authorized Version has special publication-right considerations
+            in the United Kingdom. This app still includes source attribution
+            for clarity.
+          </p>
+
+          <p class="small" style="margin-top:12px">
+            <strong>New International Version:</strong>
+            NIV quotations in this app are deliberately limited, short,
+            attributed excerpts. The local source set currently tracks
+            ${nivUsage.nivVerseTotal} NIV verse${
+              nivUsage.nivVerseTotal === 1 ? "" : "s"
+            } out of a basic 500-verse guardrail.
+          </p>
+
+          <p class="small" style="margin-top:12px">
+            ${escapeHTML(NIV_COPYRIGHT_NOTICE)}
+          </p>
+
+          <p class="warning" style="margin-top:13px">
+            The NIV verse counter is not a legal opinion. Before public,
+            commercial, or expanded distribution, verify current Biblica
+            permission terms and obtain written permission or a license when
+            the intended use requires it. Do not use this starter app as a
+            complete NIV Bible, a large NIV search database, or a substitute
+            for a rights review.
+          </p>
+
+          <hr style="border:0;border-top:1px solid var(--line);margin:17px 0" />
+
+          <p class="small">
+            The app does not offer horoscopes, predictions, scientific claims
+            about spiritual effects, or universal claims about what historical
+            traditions “really mean.”
+          </p>
+        `
+      );
     }
 
     function showToast(message) {
       const existing = document.getElementById("toast");
-      if (existing) existing.remove();
+
+      if (existing) {
+        existing.remove();
+      }
 
       const toast = document.createElement("div");
+
       toast.id = "toast";
       toast.textContent = message;
+
       toast.style.cssText = `
-        position:fixed; z-index:90; left:50%; bottom:calc(var(--nav-height) + 17px);
-        transform:translateX(-50%); width:max-content; max-width:calc(100% - 32px);
-        padding:10px 14px; border:1px solid rgba(158,224,178,.35); border-radius:999px;
-        background:rgba(14,48,35,.96); color:#e2ffeb; box-shadow:0 10px 28px rgba(0,0,0,.35);
-        font-size:.84rem; font-weight:700;
+        position: fixed;
+        z-index: 90;
+        left: 50%;
+        bottom: calc(var(--nav-height) + 17px);
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 32px);
+        padding: 10px 14px;
+        border: 1px solid rgba(158,224,178,.35);
+        border-radius: 999px;
+        background: rgba(14,48,35,.96);
+        color: #e2ffeb;
+        box-shadow: 0 10px 28px rgba(0,0,0,.35);
+        font-size: .84rem;
+        font-weight: 700;
       `;
+
       document.body.appendChild(toast);
-      setTimeout(() => toast.remove(), 2400);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 2400);
     }
 
     function switchScreen(screenName) {
       state.activeScreen = screenName;
 
       document.querySelectorAll(".screen").forEach(screen => {
-        screen.classList.toggle("active", screen.id === `screen-${screenName}`);
+        screen.classList.toggle(
+          "active",
+          screen.id === `screen-${screenName}`
+        );
       });
 
       document.querySelectorAll("[data-screen-target]").forEach(button => {
-        button.classList.toggle("active", button.dataset.screenTarget === screenName);
+        button.classList.toggle(
+          "active",
+          button.dataset.screenTarget === screenName
+        );
       });
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
 
     function renderAll() {
@@ -2680,36 +4521,46 @@
       renderVirtues();
       renderWisdom();
       renderJournal();
+
       switchScreen(state.activeScreen);
     }
 
-    /*
-      Future AI hook: preserve deterministic behavior by default.
-      A future provider may replace this only after explicit user configuration.
-    */
     async function generateWisdomAdvice(question, context) {
       return {
         mode: "local-deterministic",
         question,
         context,
-        advice: context?.moon?.phase?.action || "Choose one small action aligned with your stated value."
+        advice:
+          context?.moon?.phase?.action ||
+          "Choose one small action aligned with your stated value."
       };
     }
 
     function attachGlobalEvents() {
       document.querySelectorAll("[data-screen-target]").forEach(button => {
-        button.addEventListener("click", () => switchScreen(button.dataset.screenTarget));
+        button.addEventListener("click", () => {
+          switchScreen(button.dataset.screenTarget);
+        });
       });
 
-      document.getElementById("legendButton").addEventListener("click", renderLegend);
-      document.getElementById("closeModal").addEventListener("click", closeModal);
+      document
+        .getElementById("legendButton")
+        .addEventListener("click", renderLegend);
+
+      document
+        .getElementById("closeModal")
+        .addEventListener("click", closeModal);
 
       document.getElementById("appModal").addEventListener("click", event => {
-        if (event.target.id === "appModal") closeModal();
+        if (event.target.id === "appModal") {
+          closeModal();
+        }
       });
 
       document.addEventListener("keydown", event => {
-        if (event.key === "Escape") closeModal();
+        if (event.key === "Escape") {
+          closeModal();
+        }
       });
     }
 
@@ -2721,11 +4572,15 @@
       getMoonData,
       getSeasonData,
       getDailyContext,
+      chooseDailyPassage,
+      chooseAlternativeDailyPassage,
+      validateCopyrightedBibleUse,
       generateWisdomAdvice,
       wisdomSources,
       virtues,
       seasons,
-      phaseDefinitions
+      phaseDefinitions,
+      NIV_COPYRIGHT_NOTICE
     };
   </script>
 </body>
